@@ -1,0 +1,8 @@
+{
+  "route": {
+    "definition_revision": "df8f4acf4a044d327cc75545d19b0564d33d49cb74e63e869ca35ad54f414aa6",
+    "policy_id": "claude-code.task-route"
+  },
+  "advisory_tools": ["Task"],
+  "observations": false
+}

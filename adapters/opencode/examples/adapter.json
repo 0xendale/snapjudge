@@ -1,0 +1,8 @@
+{
+  "binary": "/absolute/path/to/snapjudge",
+  "route": {
+    "definitionRevision": "3a4bc3c29ff9860516a916cb407fb31d0cb77fd6e3045b234575415dc1bd8206",
+    "policyId": "opencode.task-route"
+  },
+  "observations": false
+}

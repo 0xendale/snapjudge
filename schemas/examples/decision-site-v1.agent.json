@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "id": "agent:claude-code:task-route",
+  "origin": "agent_hook",
+  "agent": {
+    "host": "claude-code",
+    "adapter_version": "0.1.0",
+    "event": "PreToolUse",
+    "definition_id": "task-route"
+  },
+  "outputs": [
+    {
+      "name": "route",
+      "space": {
+        "kind": "choice",
+        "options": [
+          {
+            "name": "explore",
+            "description": "Read-only search"
+          },
+          {
+            "name": "implement"
+          },
+          {
+            "name": "review"
+          }
+        ],
+        "nullable": false
+      }
+    }
+  ],
+  "kind": "occurrence",
+  "tier": "sure",
+  "reasons": [],
+  "drafts": [],
+  "input_schema": {
+    "fields": [
+      {
+        "name": "task",
+        "description": "Task description the agent is about to delegate",
+        "kind": "string",
+        "required": true
+      }
+    ]
+  },
+  "provenance": {}
+}

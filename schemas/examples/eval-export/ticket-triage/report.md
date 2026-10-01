@@ -1,0 +1,247 @@
+# snapjudge eval: `ticket-triage`
+
+Agreement is measured against the model each repo already uses, not against ground truth.
+
+- Site: `runtime:ticket-triage`
+- Status: completed
+- Inputs: synthetic
+- Reference: `openai/gpt-4o-mini` (in code: `gpt-4o-mini`); reconstructed: no; teacher_assumed: no; teacher_override: no
+- Jev model: `jev-1.13.0`
+- Policy: measured
+- Evidence revision: `b957bd5dc070aa8241cba76114c0623b9c5272b8044d797ce789f01016bd2d29`
+- Dataset: `dataset.jsonl` SHA-256 `b4e87a7ec2609353609fa39e44be2433860daf2d1901a25a545ae5d0a01ca8b8`
+
+Sample size: 20/20 correct gives a 95% Wilson lower bound of 0.8389, so `--target 0.8` needs at least 16 accepted held-out rows, all agreeing; a measured policy also needs at least `--min-accepted 20` accepted held-out rows.
+
+## Polished definition
+
+Review the questions and the answer mapping Jev was measured with.
+
+```json
+{
+  "schema_version": "1.0",
+  "id": "ticket-triage",
+  "site_id": "runtime:ticket-triage",
+  "definition_revision": "af1fc5bb79fc02204d83676bf772ec20288b962fb5a1746451f678e0bb12357c",
+  "input_schema": {
+    "fields": [
+      {
+        "name": "subject",
+        "description": "Ticket subject line",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "body",
+        "description": "Ticket body",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "attachments",
+        "description": "Number of attachments",
+        "kind": "integer",
+        "required": false
+      }
+    ]
+  },
+  "questions": {
+    "team": {
+      "type": "choice",
+      "instructions": "Which team should handle this ticket?",
+      "criteria": {
+        "billing": "Payments, invoices, refunds",
+        "support": "Product questions and bugs",
+        "sales": null,
+        "none_of_the_above": "No team fits"
+      }
+    },
+    "urgent": {
+      "type": "noul",
+      "instructions": "Does this ticket need a reply within one hour?",
+      "criteria": {
+        "true": "Outage, data loss or security exposure",
+        "false": "Anything that can wait"
+      }
+    },
+    "tag_billing": {
+      "type": "noul",
+      "instructions": "Is this ticket about billing?"
+    },
+    "tag_bug": {
+      "type": "noul",
+      "instructions": "Does this ticket report a bug?"
+    },
+    "tag_security": {
+      "type": "noul",
+      "instructions": "Does this ticket mention a security concern?"
+    },
+    "sentiment": {
+      "type": "score",
+      "instructions": "How does the customer feel?",
+      "criteria": [
+        "Angry",
+        "Unhappy",
+        "Neutral",
+        "Satisfied",
+        "Delighted"
+      ]
+    }
+  },
+  "outputs": [
+    {
+      "shape": "choice",
+      "name": "team",
+      "question": "team",
+      "required": true,
+      "nullable_option": "none_of_the_above"
+    },
+    {
+      "shape": "noul",
+      "name": "urgent",
+      "question": "urgent",
+      "required": true,
+      "cutoff": 0.5
+    },
+    {
+      "shape": "multilabel",
+      "name": "tags",
+      "labels": [
+        {
+          "name": "billing",
+          "question": "tag_billing",
+          "cutoff": 0.5,
+          "required": true
+        },
+        {
+          "name": "bug",
+          "question": "tag_bug",
+          "cutoff": 0.5,
+          "required": true
+        },
+        {
+          "name": "security",
+          "question": "tag_security",
+          "cutoff": 0.3,
+          "required": false
+        }
+      ]
+    },
+    {
+      "shape": "score",
+      "name": "sentiment",
+      "question": "sentiment",
+      "required": false,
+      "level_values": [
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ]
+    }
+  ]
+}
+```
+
+## Inputs
+
+| split | unique | valid | teacher_failed | teacher_invalid | jev_failed | not_run |
+| --- | --- | --- | --- | --- | --- | --- |
+| calibration | 40 | 39 | 0 | 0 | 1 | 0 |
+| held-out | 40 | 39 | 0 | 1 | 0 | 0 |
+
+80 rows, 0 invalid, 0 duplicates merged.
+
+## Gate
+
+Threshold t = 12/20 = 0.6 on every output and label (lowest calibration threshold reaching the target 0.8).
+
+| k | t | calibration coverage | calibration agreement |
+| --- | --- | --- | --- |
+| 0 | 0 | 39/39 | 0.6667 (26/39; 95% CI [0.5098, 0.7937]; held_out: false; inputs: synthetic) |
+| 1 | 0.05 | 39/39 | 0.6667 (26/39; 95% CI [0.5098, 0.7937]; held_out: false; inputs: synthetic) |
+| 2 | 0.1 | 39/39 | 0.6667 (26/39; 95% CI [0.5098, 0.7937]; held_out: false; inputs: synthetic) |
+| 3 | 0.15 | 39/39 | 0.6667 (26/39; 95% CI [0.5098, 0.7937]; held_out: false; inputs: synthetic) |
+| 4 | 0.2 | 39/39 | 0.6667 (26/39; 95% CI [0.5098, 0.7937]; held_out: false; inputs: synthetic) |
+| 5 | 0.25 | 39/39 | 0.6667 (26/39; 95% CI [0.5098, 0.7937]; held_out: false; inputs: synthetic) |
+| 6 | 0.3 | 39/39 | 0.6667 (26/39; 95% CI [0.5098, 0.7937]; held_out: false; inputs: synthetic) |
+| 7 | 0.35 | 39/39 | 0.6667 (26/39; 95% CI [0.5098, 0.7937]; held_out: false; inputs: synthetic) |
+| 8 | 0.4 | 39/39 | 0.6667 (26/39; 95% CI [0.5098, 0.7937]; held_out: false; inputs: synthetic) |
+| 9 | 0.45 | 39/39 | 0.6667 (26/39; 95% CI [0.5098, 0.7937]; held_out: false; inputs: synthetic) |
+| 10 | 0.5 | 39/39 | 0.6667 (26/39; 95% CI [0.5098, 0.7937]; held_out: false; inputs: synthetic) |
+| 11 | 0.55 | 39/39 | 0.6667 (26/39; 95% CI [0.5098, 0.7937]; held_out: false; inputs: synthetic) |
+| 12 | 0.6 | 26/39 | 1.0000 (26/26; 95% CI [0.8713, 1.0000]; held_out: false; inputs: synthetic) |
+| 13 | 0.65 | 18/39 | 1.0000 (18/18; 95% CI [0.8241, 1.0000]; held_out: false; inputs: synthetic) |
+| 14 | 0.7 | 18/39 | 1.0000 (18/18; 95% CI [0.8241, 1.0000]; held_out: false; inputs: synthetic) |
+| 15 | 0.75 | 12/39 | 1.0000 (12/12; 95% CI [0.7575, 1.0000]; held_out: false; inputs: synthetic) |
+| 16 | 0.8 | 12/39 | 1.0000 (12/12; 95% CI [0.7575, 1.0000]; held_out: false; inputs: synthetic) |
+| 17 | 0.85 | 6/39 | 1.0000 (6/6; 95% CI [0.6097, 1.0000]; held_out: false; inputs: synthetic) |
+| 18 | 0.9 | 6/39 | 1.0000 (6/6; 95% CI [0.6097, 1.0000]; held_out: false; inputs: synthetic) |
+| 19 | 0.95 | 0/39 | not available (0/0; 95% CI not available; held_out: false; inputs: synthetic) |
+| 20 | 1 | 0/39 | not available (0/0; 95% CI not available; held_out: false; inputs: synthetic) |
+
+## Held-out agreement
+
+- `all_required_agree`, gate-passing rows: 1.0000 (25/25; 95% CI [0.8668, 1.0000]; held_out: true; inputs: synthetic)
+- Coverage: 25/39 = 0.6410 (teacher_failed 0, teacher_invalid 1, jev_failed 0, not_run 0)
+- `all_required_agree`, every valid row (ungated): 0.6410 (25/39; 95% CI [0.4842, 0.7726]; held_out: true; inputs: synthetic)
+
+| output | accepted rows | every valid row |
+| --- | --- | --- |
+| `team` (choice) | 1.0000 (25/25; 95% CI [0.8668, 1.0000]; held_out: true; inputs: synthetic) | 0.6410 (25/39; 95% CI [0.4842, 0.7726]; held_out: true; inputs: synthetic) |
+| `urgent` (noul) | 1.0000 (25/25; 95% CI [0.8668, 1.0000]; held_out: true; inputs: synthetic) | 1.0000 (39/39; 95% CI [0.9103, 1.0000]; held_out: true; inputs: synthetic) |
+| `tags` (multilabel) | 1.0000 (25/25; 95% CI [0.8668, 1.0000]; held_out: true; inputs: synthetic) | 1.0000 (39/39; 95% CI [0.9103, 1.0000]; held_out: true; inputs: synthetic) |
+| `tags.billing` | 1.0000 (25/25; 95% CI [0.8668, 1.0000]; held_out: true; inputs: synthetic) | 1.0000 (39/39; 95% CI [0.9103, 1.0000]; held_out: true; inputs: synthetic) |
+| `tags.bug` | 1.0000 (25/25; 95% CI [0.8668, 1.0000]; held_out: true; inputs: synthetic) | 1.0000 (39/39; 95% CI [0.9103, 1.0000]; held_out: true; inputs: synthetic) |
+| `tags.security` | 1.0000 (25/25; 95% CI [0.8668, 1.0000]; held_out: true; inputs: synthetic) | 1.0000 (39/39; 95% CI [0.9103, 1.0000]; held_out: true; inputs: synthetic) |
+| `sentiment` (score) (optional) | 1.0000 (25/25; 95% CI [0.8668, 1.0000]; held_out: true; inputs: synthetic) | 1.0000 (39/39; 95% CI [0.9103, 1.0000]; held_out: true; inputs: synthetic) |
+| `sentiment` within one level | 1.0000 (25/25; 95% CI [0.8668, 1.0000]; held_out: true; inputs: synthetic) | 1.0000 (39/39; 95% CI [0.9103, 1.0000]; held_out: true; inputs: synthetic) |
+
+## Reference self-agreement
+
+- First held-out inputs by hash (unbiased): not available (0/0; 95% CI not available; held_out: true; inputs: synthetic)
+- Reruns of held-out disagreements (selected, not a rate): 0 reruns, 0 agreed, 0 unstable; 0 failed reruns
+
+## Adjudication
+
+not run
+
+## Disagreements
+
+| input | tags | gate confidence |
+| --- | --- | --- |
+| `722bf936f52c` | low_confidence | 0.5500 |
+| `795feaf9327b` | low_confidence | 0.5500 |
+| `7e8e7d5a3dad` | low_confidence | 0.5500 |
+| `84ba3ce0d50b` | low_confidence | 0.5500 |
+| `95e4ac50dfc2` | low_confidence | 0.5500 |
+| `a48e3de94718` | low_confidence | 0.5500 |
+| `a7082427d1a2` | low_confidence | 0.5500 |
+| `aa43a9a9717d` | low_confidence | 0.5500 |
+| `c4046a649554` | low_confidence | 0.5500 |
+| `e63225d6678d` | low_confidence | 0.5500 |
+| `f522828c230f` | low_confidence | 0.5500 |
+| `f5ea9cdb1858` | low_confidence | 0.5500 |
+| `fc9b9890839b` | low_confidence | 0.5500 |
+| `fdfa205f00f9` | low_confidence | 0.5500 |
+
+## Cost and latency
+
+Held-out rows where Jev was attempted: 40 (14 deferred to the reference).
+
+| path | USD | USD per input | mean latency | latency |
+| --- | --- | --- | --- | --- |
+| Jev only | $0.000400 | $0.000010 | 159 ms | measured |
+| reference only | unknown | unknown | 838 ms (1 row unmeasured) | measured |
+| cascade (modeled) | $0.003200 | $0.000080 | 451 ms | simulated |
+
+Run cost: estimated $0.025000 (worst case $0.090000), actual $0.019590 (0 calls without a reported cost).
+
+| role | model | price (USD) | source | usage basis |
+| --- | --- | --- | --- | --- |
+| designer | `anthropic/claude-sonnet-4.5` | $3.0000 prompt / $15.0000 completion per million tokens | catalogue (2026-09-29) | usage.cost reported by the provider |
+| reference | `openai/gpt-4o-mini` | $0.1500 prompt / $0.6000 completion per million tokens | catalogue (2026-09-29) | usage.cost reported by the provider |
+| jev | `jev-1.13.0` | $0.0420 per million input tokens | configuration | usage.input_tokens × input_price_usd_per_mtok |
+
+Catalogue: https://openrouter.ai/api/v1/models retrieved 2026-09-29 (SHA-256 `775bf255a8d3c98589ccb409cbbd2f9ea2766f179fc5bf1f11c3ae9aadd559f9`).

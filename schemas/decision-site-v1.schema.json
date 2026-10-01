@@ -1,0 +1,392 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:snapjudge:schema:decision-site-v1",
+  "title": "snapjudge decision-site-v1",
+  "description": "A generic DecisionSite report (`scan --format json --schema decision-site-v1`) or a single DecisionSite. Version 1.0 is deterministic scan output; 1.1 may add diagnostic `jev_review` suggestions. Validation is strict: no unknown fields, no explicit nulls for omittable fields and no empty provenance lists. The only nullable values are Choice criteria descriptions.",
+  "oneOf": [
+    { "$ref": "#/$defs/report" },
+    { "$ref": "#/$defs/site" }
+  ],
+  "$defs": {
+    "siteId": {
+      "description": "Origin namespace, then a non-empty token without whitespace (ECMA-262 \\s) or control characters.",
+      "type": "string",
+      "pattern": "^(source|agent|runtime):[^\\u0000-\\u0020\\u007f-\\u00a0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000\\ufeff]+$"
+    },
+    "version": {
+      "type": "string",
+      "enum": ["1.0", "1.1"]
+    },
+    "report": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "schema_version", "root", "files_scanned", "files_skipped", "summary", "sites"],
+      "properties": {
+        "schema": { "const": "decision-site-v1" },
+        "schema_version": { "$ref": "#/$defs/version" },
+        "root": { "type": "string" },
+        "files_scanned": { "$ref": "#/$defs/count" },
+        "files_skipped": { "$ref": "#/$defs/count" },
+        "summary": { "$ref": "#/$defs/summary" },
+        "sites": { "type": "array", "items": { "$ref": "#/$defs/site" } }
+      }
+    },
+    "count": { "type": "integer", "minimum": 0 },
+    "summary": {
+      "description": "Every legacy Summary field (Source occurrences only) plus wrapper definitions.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["call_sites", "sure", "likely", "review", "not_decision", "langchain_excluded", "counted", "decisions", "decision_pct", "wrapper_definitions"],
+      "properties": {
+        "call_sites": { "$ref": "#/$defs/count" },
+        "sure": { "$ref": "#/$defs/count" },
+        "likely": { "$ref": "#/$defs/count" },
+        "review": { "$ref": "#/$defs/count" },
+        "not_decision": { "$ref": "#/$defs/count" },
+        "langchain_excluded": { "$ref": "#/$defs/count" },
+        "counted": { "$ref": "#/$defs/count" },
+        "decisions": { "$ref": "#/$defs/count" },
+        "decision_pct": { "type": "number", "minimum": 0, "maximum": 100 },
+        "wrapper_definitions": { "$ref": "#/$defs/count" }
+      }
+    },
+    "site": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "id", "origin", "outputs", "kind", "tier", "reasons", "drafts", "provenance"],
+      "properties": {
+        "schema_version": { "$ref": "#/$defs/version" },
+        "id": { "$ref": "#/$defs/siteId" },
+        "source_revision": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "origin": { "enum": ["source", "agent_hook", "runtime"] },
+        "source": { "$ref": "#/$defs/sourceLocation" },
+        "agent": { "$ref": "#/$defs/agentOrigin" },
+        "model": { "type": "string" },
+        "prompt": { "$ref": "#/$defs/prompt" },
+        "outputs": { "type": "array", "items": { "$ref": "#/$defs/outputField" } },
+        "kind": { "enum": ["occurrence", "wrapper_definition"] },
+        "tier": { "$ref": "#/$defs/tier" },
+        "reasons": { "type": "array", "items": { "type": "string" } },
+        "drafts": { "type": "array", "items": { "$ref": "#/$defs/draft" } },
+        "input_schema": { "$ref": "#/$defs/inputSchema" },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "jev_review": { "$ref": "#/$defs/jevReview" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "origin": { "const": "source" } }, "required": ["origin"] },
+          "then": {
+            "required": ["source", "source_revision"],
+            "not": { "required": ["agent"] },
+            "properties": { "id": { "pattern": "^source:" } }
+          }
+        },
+        {
+          "if": { "properties": { "origin": { "const": "agent_hook" } }, "required": ["origin"] },
+          "then": {
+            "required": ["agent"],
+            "not": { "anyOf": [{ "required": ["source"] }, { "required": ["source_revision"] }] },
+            "properties": {
+              "id": { "pattern": "^agent:" },
+              "kind": { "const": "occurrence" },
+              "provenance": { "maxProperties": 0 }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "origin": { "const": "runtime" } }, "required": ["origin"] },
+          "then": {
+            "not": { "anyOf": [{ "required": ["source"] }, { "required": ["agent"] }, { "required": ["source_revision"] }] },
+            "properties": {
+              "id": { "pattern": "^runtime:" },
+              "kind": { "const": "occurrence" },
+              "provenance": { "maxProperties": 0 }
+            }
+          }
+        },
+        {
+          "if": { "required": ["jev_review"] },
+          "then": { "properties": { "schema_version": { "const": "1.1" } } }
+        }
+      ]
+    },
+    "jevReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["probability", "suggestion", "model", "questions"],
+      "properties": {
+        "probability": { "type": "number", "minimum": 0, "maximum": 1 },
+        "suggestion": { "enum": ["likely", "review"] },
+        "model": { "type": "string", "minLength": 1 },
+        "request_id": { "type": "string" },
+        "questions": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/jevSuggestion" } }
+      }
+    },
+    "jevSuggestion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subject", "answer", "probabilities"],
+      "properties": {
+        "subject": { "enum": ["bounded_decision", "free_text_role", "parameter_role"] },
+        "answer": { "type": "string", "minLength": 1 },
+        "probabilities": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "tier": { "enum": ["sure", "likely", "review", "not_decision"] },
+    "lang": { "enum": ["python", "typescript", "javascript"] },
+    "sdk": { "enum": ["openai", "anthropic", "ai-sdk", "langchain", "instructor", "litellm"] },
+    "sourceLocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["file", "line", "byte_offset", "lang", "sdk", "api", "via"],
+      "properties": {
+        "file": { "type": "string" },
+        "line": { "type": "integer", "minimum": 1 },
+        "byte_offset": { "$ref": "#/$defs/count" },
+        "lang": { "$ref": "#/$defs/lang" },
+        "sdk": { "$ref": "#/$defs/sdk" },
+        "api": { "type": "string" },
+        "max_tokens": { "$ref": "#/$defs/count" },
+        "via": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "agentOrigin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["host", "adapter_version", "event", "definition_id"],
+      "properties": {
+        "host": { "type": "string" },
+        "adapter_version": { "type": "string" },
+        "event": { "type": "string" },
+        "definition_id": { "type": "string" }
+      }
+    },
+    "prompt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dynamic"],
+      "properties": {
+        "text": { "type": "string" },
+        "dynamic": { "type": "boolean" }
+      }
+    },
+    "label": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" }
+      }
+    },
+    "level": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value"],
+      "properties": {
+        "value": { "type": "number" },
+        "description": { "type": "string" }
+      }
+    },
+    "answerSpace": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "options", "nullable"],
+          "properties": {
+            "kind": { "const": "choice" },
+            "options": { "type": "array", "items": { "$ref": "#/$defs/label" } },
+            "nullable": { "type": "boolean" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind"],
+          "properties": { "kind": { "const": "noul" } }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "labels"],
+          "properties": {
+            "kind": { "const": "multi_label" },
+            "labels": { "type": "array", "items": { "$ref": "#/$defs/label" } }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "min", "max", "integer", "levels"],
+          "properties": {
+            "kind": { "const": "score" },
+            "min": { "type": "number" },
+            "max": { "type": "number" },
+            "integer": { "type": "boolean" },
+            "levels": { "type": "array", "items": { "$ref": "#/$defs/level" } }
+          }
+        }
+      ]
+    },
+    "outputField": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["space"],
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "space": { "$ref": "#/$defs/answerSpace" }
+      }
+    },
+    "question": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "instructions", "criteria"],
+          "properties": {
+            "type": { "const": "choice" },
+            "instructions": { "type": "string" },
+            "criteria": { "type": "object", "additionalProperties": { "type": ["string", "null"] } }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "instructions"],
+          "properties": {
+            "type": { "const": "noul" },
+            "instructions": { "type": "string" },
+            "criteria": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["true", "false"],
+              "properties": {
+                "true": { "type": "string" },
+                "false": { "type": "string" }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "instructions", "criteria"],
+          "properties": {
+            "type": { "const": "score" },
+            "instructions": { "type": "string" },
+            "criteria": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      ]
+    },
+    "draft": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key", "question", "quality"],
+      "properties": {
+        "key": { "type": "string" },
+        "question": { "$ref": "#/$defs/question" },
+        "level_values": { "type": "array", "items": { "type": "number" } },
+        "quality": { "enum": ["rough", "polished"] }
+      }
+    },
+    "inputSchema": {
+      "description": "Input contract of a decision (Task 8). `kind` is an open string in 1.x; new fields need a new minor version and a newer reader.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fields"],
+      "properties": {
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "description", "kind", "required"],
+            "properties": {
+              "name": { "type": "string" },
+              "description": { "type": "string" },
+              "kind": { "type": "string" },
+              "required": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    },
+    "occurrence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["file", "byte_offset", "line"],
+      "properties": {
+        "file": { "type": "string" },
+        "byte_offset": { "$ref": "#/$defs/count" },
+        "line": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key", "role", "slot"],
+      "properties": {
+        "key": { "type": "string" },
+        "role": { "enum": ["prompt", "schema", "model", "forward"] },
+        "slot": { "type": "string", "pattern": "^(param:[0-9]+|prop:[0-9]+:.+|kwargs|rest:[0-9]+)$" }
+      }
+    },
+    "edge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "caller", "callee", "depth", "label", "bindings", "origins", "kind"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[0-9a-f]{12}(-[0-9]+)?$" },
+        "caller": { "$ref": "#/$defs/occurrence" },
+        "callee": { "$ref": "#/$defs/occurrence" },
+        "depth": { "type": "integer", "minimum": 1 },
+        "label": { "type": "string" },
+        "bindings": { "type": "array", "items": { "$ref": "#/$defs/binding" } },
+        "origins": { "type": "array", "items": { "$ref": "#/$defs/occurrence" } },
+        "kind": { "enum": ["fold", "distinct", "ambiguous", "multiple_decisions", "depth_exceeded"] }
+      }
+    },
+    "alternative": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["edge", "sdk", "api", "tier", "outputs"],
+      "properties": {
+        "edge": { "$ref": "#/$defs/edge" },
+        "sdk": { "$ref": "#/$defs/sdk" },
+        "api": { "type": "string" },
+        "model": { "type": "string" },
+        "max_tokens": { "$ref": "#/$defs/count" },
+        "tier": { "$ref": "#/$defs/tier" },
+        "outputs": { "type": "array", "items": { "$ref": "#/$defs/outputField" } },
+        "prompt": { "$ref": "#/$defs/prompt" }
+      }
+    },
+    "provenance": {
+      "description": "Source sites only; `{}` for other origins. Empty lists are omitted.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "disposition": { "enum": ["direct", "no_callers", "represented", "hidden", "folded", "distinct", "ambiguous", "multiple_decisions", "depth_exceeded"] },
+        "depth": { "$ref": "#/$defs/count" },
+        "occurrence": { "$ref": "#/$defs/occurrence" },
+        "alternatives": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/alternative" } },
+        "blocked": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/edge" } },
+        "callers": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/edge" } },
+        "folded": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/occurrence" } },
+        "conflicts": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "reason_codes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "enum": ["no_callers", "trace_depth_exceeded", "ambiguous_wrapper_match", "wrapper_multiple_decisions", "conflicting_parameter_values"] }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "captured": "2026-09-28",
+  "endpoint": "POST https://api.typesafe.ai/v1/systemone",
+  "request": {
+    "model": "jev-1.13.0",
+    "state": "x"
+  },
+  "status": 422,
+  "headers": {
+    "content-type": "application/json",
+    "x-typesafe-request-id": "req_01a0e514ceac7187a5b73ceb99f0ebd6"
+  },
+  "body": {
+    "detail": [
+      {
+        "type": "missing",
+        "loc": [
+          "body",
+          "questions"
+        ],
+        "msg": "Field required",
+        "input": {
+          "model": "jev-1.13.0",
+          "state": "x"
+        }
+      }
+    ]
+  }
+}

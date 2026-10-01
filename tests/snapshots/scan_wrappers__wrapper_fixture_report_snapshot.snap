@@ -1,0 +1,2406 @@
+---
+source: tests/scan_wrappers.rs
+expression: "scan(Path::new(ROOT))"
+---
+{
+  "root": "tests/fixtures_wrap",
+  "files_scanned": 49,
+  "files_skipped": 0,
+  "summary": {
+    "call_sites": 66,
+    "sure": 33,
+    "likely": 2,
+    "review": 29,
+    "not_decision": 2,
+    "langchain_excluded": 0,
+    "counted": 66,
+    "decisions": 35,
+    "decision_pct": 53.0
+  },
+  "sites": [
+    {
+      "id": "05351db2cfe1",
+      "file": "py/app/assistant.py",
+      "line": 23,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/assistant.py:13 run"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "toxic",
+          "space": {
+            "kind": "noul"
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Is this comment toxic?\n",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "toxic",
+          "question": {
+            "type": "noul",
+            "instructions": "Is this comment toxic?"
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "aef00f9d8975",
+      "file": "py/app/bots.py",
+      "line": 13,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "model": "gpt-4o-mini",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `schema`"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "7868346bea21",
+      "file": "py/app/bots.py",
+      "line": 28,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "model": "gpt-4o",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `schema`"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "53b57d8fc123",
+      "file": "py/app/bots.py",
+      "line": 36,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/bots.py:12 check",
+        "+3 alternatives"
+      ],
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "ambiguous_wrapper_match: 4 matching wrappers evaluate differently"
+      ],
+      "drafts": []
+    },
+    {
+      "id": "9faafa6e4715",
+      "file": "py/app/classifiers.py",
+      "line": 15,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "model": "gpt-4o-mini",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `categories`"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "285b31c57dce",
+      "file": "py/app/classifiers.py",
+      "line": 24,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "model": "gpt-4o",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `categories`"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "6e12750d51e8",
+      "file": "py/app/classifiers.py",
+      "line": 32,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/classifiers.py:14 categorize",
+        "+1 alternatives"
+      ],
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "ambiguous_wrapper_match: 2 matching wrappers evaluate differently"
+      ],
+      "drafts": []
+    },
+    {
+      "id": "30e5ea3ff97f",
+      "file": "py/app/cycle.py",
+      "line": 7,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "model": "gpt-4o-mini",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `schema`"
+      ],
+      "prompt": {
+        "text": "Approve or reject the request.",
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "a6de4a8e733a",
+      "file": "py/app/ensemble.py",
+      "line": 14,
+      "lang": "python",
+      "sdk": "litellm",
+      "api": "completion",
+      "model": "gpt-4o-mini",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `schema`"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "99b86170fa1b",
+      "file": "py/app/ensemble.py",
+      "line": 15,
+      "lang": "python",
+      "sdk": "litellm",
+      "api": "completion",
+      "model": "claude-3-5-haiku-latest",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `schema`"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "7ddb6b561b2a",
+      "file": "py/app/ensemble.py",
+      "line": 16,
+      "lang": "python",
+      "sdk": "litellm",
+      "api": "completion",
+      "model": "gemini/gemini-1.5-flash",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `schema`"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "ffcba88f4035",
+      "file": "py/app/ensemble.py",
+      "line": 17,
+      "lang": "python",
+      "sdk": "litellm",
+      "api": "completion",
+      "model": "mistral/mistral-small-latest",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `schema`"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "b316115a466e",
+      "file": "py/app/ensemble.py",
+      "line": 18,
+      "lang": "python",
+      "sdk": "litellm",
+      "api": "completion",
+      "model": "groq/llama-3.1-8b-instant",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `schema`"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "7f276f52b403",
+      "file": "py/app/ensemble.py",
+      "line": 19,
+      "lang": "python",
+      "sdk": "litellm",
+      "api": "completion",
+      "model": "deepseek/deepseek-chat",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `schema`"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "fdf293adee73",
+      "file": "py/app/ensemble.py",
+      "line": 24,
+      "lang": "python",
+      "sdk": "litellm",
+      "api": "completion",
+      "via": [
+        "py/app/ensemble.py:11 vote",
+        "+5 alternatives"
+      ],
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "wrapper_multiple_decisions: 6 LLM calls in vote evaluate differently"
+      ],
+      "drafts": []
+    },
+    {
+      "id": "cecd2205feda",
+      "file": "py/app/escalation.py",
+      "line": 7,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `schema`"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "2014b82ac6c5",
+      "file": "py/app/escalation.py",
+      "line": 18,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/escalation.py:6 verify"
+      ],
+      "model": "gpt-4o",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `schema`"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "944f3531d020",
+      "file": "py/app/fallback.py",
+      "line": 21,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "model": "gpt-4o-mini",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema `schema` assigned on several paths"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "665add097a3f",
+      "file": "py/app/grading.py",
+      "line": 18,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "model": "gpt-4o-mini",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `rubric`"
+      ],
+      "prompt": {
+        "text": "Grade the answer against the rubric.",
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "aaa0b12e225e",
+      "file": "py/app/grading.py",
+      "line": 21,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "model": "gpt-4o",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `rubric`"
+      ],
+      "prompt": {
+        "text": "Grade the answer against the rubric.",
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "ae9e680fc208",
+      "file": "py/app/grading.py",
+      "line": 32,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/grading.py:13 grade",
+        "+1 alternatives"
+      ],
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "wrapper_multiple_decisions: 2 LLM calls in grade evaluate differently"
+      ],
+      "drafts": []
+    },
+    {
+      "id": "e3617efb648b",
+      "file": "py/app/grading.py",
+      "line": 36,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/grading.py:27 grade_all",
+        "py/app/grading.py:13 grade",
+        "+1 alternatives"
+      ],
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "wrapper_multiple_decisions: 2 LLM calls in grade evaluate differently"
+      ],
+      "drafts": []
+    },
+    {
+      "id": "8ce0c11218b9",
+      "file": "py/app/grading.py",
+      "line": 44,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/grading.py:39 grade_batch_with",
+        "py/app/grading.py:27 grade_all",
+        "py/app/grading.py:13 grade",
+        "+1 alternatives"
+      ],
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "wrapper_multiple_decisions: 2 LLM calls in grade evaluate differently"
+      ],
+      "drafts": []
+    },
+    {
+      "id": "866c0a79592e",
+      "file": "py/app/late.py",
+      "line": 34,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/late.py:23 review_invoice",
+        "+1 alternatives"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "approved",
+          "space": {
+            "kind": "noul"
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Is this invoice approved for payment?",
+        "dynamic": false
+      },
+      "drafts": [
+        {
+          "key": "approved",
+          "question": {
+            "type": "noul",
+            "instructions": "Is this invoice approved for payment?"
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "e04dfc8a7861",
+      "file": "py/app/main.py",
+      "line": 20,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/llm.py:6 ask"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "is_spam",
+          "space": {
+            "kind": "noul"
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Is this ticket spam? ",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "is_spam",
+          "question": {
+            "type": "noul",
+            "instructions": "Is this ticket spam?"
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "a9e92ca95091",
+      "file": "py/app/main.py",
+      "line": 24,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/triage.py:4 triage",
+        "py/app/llm.py:6 ask"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "level",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "low"
+              },
+              {
+                "name": "medium"
+              },
+              {
+                "name": "high"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Triage the support ticket.",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "level",
+          "question": {
+            "type": "choice",
+            "instructions": "Triage the support ticket.",
+            "criteria": {
+              "low": null,
+              "medium": null,
+              "high": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "212fd0a74681",
+      "file": "py/app/main.py",
+      "line": 25,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/tickets.py:4 triage_ticket",
+        "py/app/triage.py:4 triage",
+        "py/app/llm.py:6 ask"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "level",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "low"
+              },
+              {
+                "name": "medium"
+              },
+              {
+                "name": "high"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Triage the support ticket.",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "level",
+          "question": {
+            "type": "choice",
+            "instructions": "Triage the support ticket.",
+            "criteria": {
+              "low": null,
+              "medium": null,
+              "high": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "0b58db3c3d43",
+      "file": "py/app/main.py",
+      "line": 26,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/routing.py:4 route",
+        "py/app/tickets.py:4 triage_ticket",
+        "py/app/triage.py:4 triage",
+        "py/app/llm.py:6 ask"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "level",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "low"
+              },
+              {
+                "name": "medium"
+              },
+              {
+                "name": "high"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Triage the support ticket.",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "level",
+          "question": {
+            "type": "choice",
+            "instructions": "Triage the support ticket.",
+            "criteria": {
+              "low": null,
+              "medium": null,
+              "high": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "8845ce13f44e",
+      "file": "py/app/moderation.py",
+      "line": 16,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "model": "gpt-4o-mini",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `schema`"
+      ],
+      "prompt": {
+        "text": "Flag posts that break the community rules.",
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "8845ce13f44e-2",
+      "file": "py/app/moderation.py",
+      "line": 20,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "model": "gpt-4o-mini",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `schema`"
+      ],
+      "prompt": {
+        "text": "Flag posts that break the community rules.",
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "191f90cf24af",
+      "file": "py/app/moderation.py",
+      "line": 31,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/moderation.py:11 moderate",
+        "+1 alternatives"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "unsafe",
+          "space": {
+            "kind": "noul"
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Flag posts that break the community rules.",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "unsafe",
+          "question": {
+            "type": "noul",
+            "instructions": "Flag posts that break the community rules."
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "8fd9590fdfa3",
+      "file": "py/app/recursion.py",
+      "line": 41,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/recursion.py:11 review"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "approved",
+          "space": {
+            "kind": "noul"
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "approved",
+          "question": {
+            "type": "noul",
+            "instructions": "[rough] What is the correct `approved` for this input?"
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "dcd32eb32eb5",
+      "file": "py/app/recursion.py",
+      "line": 41,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/recursion.py:22 ping",
+        "+1 alternatives"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "approved",
+          "space": {
+            "kind": "noul"
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Approve or reject the request.",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "approved",
+          "question": {
+            "type": "noul",
+            "instructions": "Approve or reject the request."
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "6caf068a4216",
+      "file": "py/app/refunds.py",
+      "line": 18,
+      "lang": "python",
+      "sdk": "litellm",
+      "api": "completion",
+      "via": [
+        "py/app/refunds.py:9 complete"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "likely",
+      "outputs": [
+        {
+          "space": {
+            "kind": "noul"
+          }
+        }
+      ],
+      "reasons": [
+        "prompt asks for yes or no",
+        "max_tokens <= 16"
+      ],
+      "prompt": {
+        "text": "Is this email a refund request? Answer yes or no.\n\n",
+        "dynamic": true
+      },
+      "max_tokens": 1,
+      "drafts": [
+        {
+          "key": "decision",
+          "question": {
+            "type": "noul",
+            "instructions": "Is this email a refund request? Answer yes or no."
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "b2ecec0c753a",
+      "file": "py/app/refunds.py",
+      "line": 25,
+      "lang": "python",
+      "sdk": "litellm",
+      "api": "completion",
+      "via": [
+        "py/app/refunds.py:9 complete"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "is_refund",
+          "space": {
+            "kind": "noul"
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Is this email a refund request?\n\n",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "is_refund",
+          "question": {
+            "type": "noul",
+            "instructions": "Is this email a refund request?"
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "9c4b2c646378",
+      "file": "py/app/requeue.py",
+      "line": 7,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `schema`"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "855d6ffd526f",
+      "file": "py/app/requeue.py",
+      "line": 18,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/requeue.py:6 ask"
+      ],
+      "model": "gpt-4o",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `question`"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "c2e77bdbefb3",
+      "file": "py/app/retrying.py",
+      "line": 32,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/retrying.py:21 classify_tone"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "tone",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "calm"
+              },
+              {
+                "name": "angry"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "tone",
+          "question": {
+            "type": "choice",
+            "instructions": "[rough] What is the correct `tone` for this input?",
+            "criteria": {
+              "calm": null,
+              "angry": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "69bb9a5c8283",
+      "file": "py/app/retrying.py",
+      "line": 36,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "tone",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "calm"
+              },
+              {
+                "name": "angry"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "tone",
+          "question": {
+            "type": "choice",
+            "instructions": "[rough] What is the correct `tone` for this input?",
+            "criteria": {
+              "calm": null,
+              "angry": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "4468fa36c00d",
+      "file": "py/app/reviews.py",
+      "line": 14,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/rating.py:6 rate"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "stars",
+          "space": {
+            "kind": "score",
+            "min": 1.0,
+            "max": 5.0,
+            "integer": true,
+            "levels": [
+              {
+                "value": 1.0
+              },
+              {
+                "value": 2.0
+              },
+              {
+                "value": 3.0
+              },
+              {
+                "value": 4.0
+              },
+              {
+                "value": 5.0
+              }
+            ]
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Rate the product review.",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "stars",
+          "question": {
+            "type": "score",
+            "instructions": "Rate the product review.",
+            "criteria": [
+              "[rough] level 1",
+              "[rough] level 2",
+              "[rough] level 3",
+              "[rough] level 4",
+              "[rough] level 5"
+            ]
+          },
+          "level_values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0
+          ],
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "fba84208574c",
+      "file": "py/app/reviews.py",
+      "line": 15,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/rating.py:6 rate"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "stars",
+          "space": {
+            "kind": "score",
+            "min": 1.0,
+            "max": 5.0,
+            "integer": true,
+            "levels": [
+              {
+                "value": 1.0
+              },
+              {
+                "value": 2.0
+              },
+              {
+                "value": 3.0
+              },
+              {
+                "value": 4.0
+              },
+              {
+                "value": 5.0
+              }
+            ]
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Rate the product review.",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "stars",
+          "question": {
+            "type": "score",
+            "instructions": "Rate the product review.",
+            "criteria": [
+              "[rough] level 1",
+              "[rough] level 2",
+              "[rough] level 3",
+              "[rough] level 4",
+              "[rough] level 5"
+            ]
+          },
+          "level_values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0
+          ],
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "4468fa36c00d-2",
+      "file": "py/app/reviews.py",
+      "line": 20,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/rating.py:6 rate"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "stars",
+          "space": {
+            "kind": "score",
+            "min": 1.0,
+            "max": 5.0,
+            "integer": true,
+            "levels": [
+              {
+                "value": 1.0
+              },
+              {
+                "value": 2.0
+              },
+              {
+                "value": 3.0
+              },
+              {
+                "value": 4.0
+              },
+              {
+                "value": 5.0
+              }
+            ]
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Rate the product review.",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "stars",
+          "question": {
+            "type": "score",
+            "instructions": "Rate the product review.",
+            "criteria": [
+              "[rough] level 1",
+              "[rough] level 2",
+              "[rough] level 3",
+              "[rough] level 4",
+              "[rough] level 5"
+            ]
+          },
+          "level_values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0
+          ],
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "4468fa36c00d-3",
+      "file": "py/app/reviews.py",
+      "line": 21,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/rating.py:6 rate"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "stars",
+          "space": {
+            "kind": "score",
+            "min": 1.0,
+            "max": 5.0,
+            "integer": true,
+            "levels": [
+              {
+                "value": 1.0
+              },
+              {
+                "value": 2.0
+              },
+              {
+                "value": 3.0
+              },
+              {
+                "value": 4.0
+              },
+              {
+                "value": 5.0
+              }
+            ]
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Rate the product review.",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "stars",
+          "question": {
+            "type": "score",
+            "instructions": "Rate the product review.",
+            "criteria": [
+              "[rough] level 1",
+              "[rough] level 2",
+              "[rough] level 3",
+              "[rough] level 4",
+              "[rough] level 5"
+            ]
+          },
+          "level_values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0
+          ],
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "babc28dc2252",
+      "file": "py/app/scopes.py",
+      "line": 19,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/scopes.py:12 classify"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "urgent",
+          "space": {
+            "kind": "noul"
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Is this message urgent?",
+        "dynamic": false
+      },
+      "drafts": [
+        {
+          "key": "urgent",
+          "question": {
+            "type": "noul",
+            "instructions": "Is this message urgent?"
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "ca993c1c8b3d",
+      "file": "py/app/sentiment.py",
+      "line": 9,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "label",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "positive"
+              },
+              {
+                "name": "neutral"
+              },
+              {
+                "name": "negative"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Classify the sentiment of the review.",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "label",
+          "question": {
+            "type": "choice",
+            "instructions": "Classify the sentiment of the review.",
+            "criteria": {
+              "positive": null,
+              "neutral": null,
+              "negative": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "7507a11ef4af",
+      "file": "py/app/sentiment.py",
+      "line": 24,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/app/sentiment.py:8 sentiment"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "label",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "positive"
+              },
+              {
+                "name": "neutral"
+              },
+              {
+                "name": "negative"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Classify the sentiment of the review.",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "label",
+          "question": {
+            "type": "choice",
+            "instructions": "Classify the sentiment of the review.",
+            "criteria": {
+              "positive": null,
+              "neutral": null,
+              "negative": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "75e2abaec305",
+      "file": "py/app/summaries.py",
+      "line": 7,
+      "lang": "python",
+      "sdk": "anthropic",
+      "api": "messages.create",
+      "model": "claude-sonnet-4-5",
+      "tier": "not_decision",
+      "outputs": [],
+      "reasons": [
+        "free-text generation"
+      ],
+      "prompt": {
+        "text": "Summarize the text in two sentences.",
+        "dynamic": true
+      },
+      "max_tokens": 300,
+      "drafts": []
+    },
+    {
+      "id": "3995c84e4c1d",
+      "file": "py/app/unused.py",
+      "line": 7,
+      "lang": "python",
+      "sdk": "anthropic",
+      "api": "messages.create",
+      "tier": "not_decision",
+      "outputs": [],
+      "reasons": [
+        "free-text generation"
+      ],
+      "prompt": {
+        "text": "Summarize this ticket:\n",
+        "dynamic": true
+      },
+      "max_tokens": 512,
+      "drafts": []
+    },
+    {
+      "id": "f5b705b90d05",
+      "file": "py/app/verdicts.py",
+      "line": 31,
+      "lang": "python",
+      "sdk": "anthropic",
+      "api": "messages.create",
+      "via": [
+        "py/app/verdicts.py:20 extract"
+      ],
+      "model": "claude-sonnet-4-5",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "verdict",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "approve"
+              },
+              {
+                "name": "reject"
+              },
+              {
+                "name": "escalate"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Review this insurance claim:\n",
+        "dynamic": true
+      },
+      "max_tokens": 1024,
+      "drafts": [
+        {
+          "key": "verdict",
+          "question": {
+            "type": "choice",
+            "instructions": "Review this insurance claim:",
+            "criteria": {
+              "approve": null,
+              "reject": null,
+              "escalate": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "24d2dc2681dd",
+      "file": "py/deep/moderation_chain.py",
+      "line": 14,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "model": "gpt-4o-mini",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `schema`"
+      ],
+      "prompt": {
+        "text": "Decide what to do with the content.",
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "55269b90ade3",
+      "file": "py/deep/moderation_chain.py",
+      "line": 41,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/deep/moderation_chain.py:32 screen_forum",
+        "py/deep/moderation_chain.py:28 screen_thread",
+        "py/deep/moderation_chain.py:24 screen_post",
+        "py/deep/moderation_chain.py:13 screen"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "action",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "keep"
+              },
+              {
+                "name": "hide"
+              },
+              {
+                "name": "ban"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Decide what to do with the content.",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "action",
+          "question": {
+            "type": "choice",
+            "instructions": "Decide what to do with the content.",
+            "criteria": {
+              "keep": null,
+              "hide": null,
+              "ban": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "94fa90fa5131",
+      "file": "py/deep/moderation_chain.py",
+      "line": 41,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/deep/moderation_chain.py:36 screen_site",
+        "py/deep/moderation_chain.py:32 screen_forum",
+        "py/deep/moderation_chain.py:28 screen_thread",
+        "py/deep/moderation_chain.py:24 screen_post",
+        "py/deep/moderation_chain.py:13 screen"
+      ],
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "trace_depth_exceeded: wrapper chain deeper than 4 levels"
+      ],
+      "drafts": []
+    },
+    {
+      "id": "68beed94c58c",
+      "file": "py/deep/moderation_chain.py",
+      "line": 51,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/deep/moderation_chain.py:44 hub",
+        "py/deep/moderation_chain.py:13 screen"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "action",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "keep"
+              },
+              {
+                "name": "hide"
+              },
+              {
+                "name": "ban"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)",
+        "trace_depth_exceeded: wrapper chain deeper than 4 levels"
+      ],
+      "prompt": {
+        "text": "Decide what to do with the content.",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "action",
+          "question": {
+            "type": "choice",
+            "instructions": "Decide what to do with the content.",
+            "criteria": {
+              "keep": null,
+              "hide": null,
+              "ban": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "6a12166a66f9",
+      "file": "py/scripts/run.py",
+      "line": 12,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "py/scripts/labels.py:6 label"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "queue",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "billing"
+              },
+              {
+                "name": "bugs"
+              },
+              {
+                "name": "other"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Label the support ticket.",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "queue",
+          "question": {
+            "type": "choice",
+            "instructions": "Label the support ticket.",
+            "criteria": {
+              "billing": null,
+              "bugs": null,
+              "other": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "7aac475b2016",
+      "file": "ts/src/chain/app.ts",
+      "line": 10,
+      "lang": "typescript",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "ts/src/chain/llm.ts:7 complete"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "level",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "low"
+              },
+              {
+                "name": "medium"
+              },
+              {
+                "name": "high"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "How urgent is this ticket?",
+        "dynamic": false
+      },
+      "drafts": [
+        {
+          "key": "level",
+          "question": {
+            "type": "choice",
+            "instructions": "How urgent is this ticket?",
+            "criteria": {
+              "low": null,
+              "medium": null,
+              "high": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "85fd9364cd30",
+      "file": "ts/src/chain/app.ts",
+      "line": 11,
+      "lang": "typescript",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "ts/src/chain/triage.ts:4 triage",
+        "ts/src/chain/llm.ts:7 complete"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "level",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "low"
+              },
+              {
+                "name": "medium"
+              },
+              {
+                "name": "high"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Triage the support ticket.\nThe printer is on fire",
+        "dynamic": false
+      },
+      "drafts": [
+        {
+          "key": "level",
+          "question": {
+            "type": "choice",
+            "instructions": "Triage the support ticket. The printer is on fire",
+            "criteria": {
+              "low": null,
+              "medium": null,
+              "high": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "c8010f5ff1b0",
+      "file": "ts/src/chain/app.ts",
+      "line": 12,
+      "lang": "typescript",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "ts/src/chain/route.ts:4 route",
+        "ts/src/chain/triage.ts:4 triage",
+        "ts/src/chain/llm.ts:7 complete"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "level",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "low"
+              },
+              {
+                "name": "medium"
+              },
+              {
+                "name": "high"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Triage the support ticket.\nThe printer is on fire",
+        "dynamic": false
+      },
+      "drafts": [
+        {
+          "key": "level",
+          "question": {
+            "type": "choice",
+            "instructions": "Triage the support ticket. The printer is on fire",
+            "criteria": {
+              "low": null,
+              "medium": null,
+              "high": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "1dcb7a04a923",
+      "file": "ts/src/chain/app.ts",
+      "line": 13,
+      "lang": "typescript",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "ts/src/chain/handler.ts:4 handle",
+        "ts/src/chain/route.ts:4 route",
+        "ts/src/chain/triage.ts:4 triage",
+        "ts/src/chain/llm.ts:7 complete"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "level",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "low"
+              },
+              {
+                "name": "medium"
+              },
+              {
+                "name": "high"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Triage the support ticket.",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "level",
+          "question": {
+            "type": "choice",
+            "instructions": "Triage the support ticket.",
+            "criteria": {
+              "low": null,
+              "medium": null,
+              "high": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "d45a80b23631",
+      "file": "ts/src/inbox.ts",
+      "line": 4,
+      "lang": "typescript",
+      "sdk": "ai-sdk",
+      "api": "generateObject",
+      "via": [
+        "ts/src/labeler.ts:4 decideLabel"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "inbox"
+              },
+              {
+                "name": "promotions"
+              },
+              {
+                "name": "spam"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Which folder should this email go to?\n",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "decision",
+          "question": {
+            "type": "choice",
+            "instructions": "Which folder should this email go to?",
+            "criteria": {
+              "inbox": null,
+              "promotions": null,
+              "spam": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "7637a7f616bb",
+      "file": "ts/src/retrying.ts",
+      "line": 28,
+      "lang": "typescript",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "via": [
+        "ts/src/retrying.ts:15 pickLabel"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "label",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "bug"
+              },
+              {
+                "name": "feature"
+              },
+              {
+                "name": "question"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "label",
+          "question": {
+            "type": "choice",
+            "instructions": "[rough] What is the correct `label` for this input?",
+            "criteria": {
+              "bug": null,
+              "feature": null,
+              "question": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "39071e372bca",
+      "file": "ts/src/retrying.ts",
+      "line": 32,
+      "lang": "typescript",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "label",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "bug"
+              },
+              {
+                "name": "feature"
+              },
+              {
+                "name": "question"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "label",
+          "question": {
+            "type": "choice",
+            "instructions": "[rough] What is the correct `label` for this input?",
+            "criteria": {
+              "bug": null,
+              "feature": null,
+              "question": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "a4f7313de0c9",
+      "file": "ts/src/router.ts",
+      "line": 19,
+      "lang": "typescript",
+      "sdk": "ai-sdk",
+      "api": "generateObject",
+      "via": [
+        "ts/src/router.ts:11 decide"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "destination",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "search"
+              },
+              {
+                "name": "chat"
+              },
+              {
+                "name": "handoff"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Route this message: ",
+        "dynamic": true
+      },
+      "max_tokens": 20,
+      "drafts": [
+        {
+          "key": "destination",
+          "question": {
+            "type": "choice",
+            "instructions": "Route this message:",
+            "criteria": {
+              "search": null,
+              "chat": null,
+              "handoff": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "a8a85017b1d3",
+      "file": "ts/src/server.ts",
+      "line": 8,
+      "lang": "typescript",
+      "sdk": "openai",
+      "api": "chat.completions.create",
+      "model": "gpt-4o-mini",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "prompt built at runtime; cannot inspect"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "c9cccb6e52b6",
+      "file": "ts/src/spam.ts",
+      "line": 14,
+      "lang": "typescript",
+      "sdk": "openai",
+      "api": "chat.completions.create",
+      "via": [
+        "ts/src/spam.ts:5 ask"
+      ],
+      "model": "gpt-4o-mini",
+      "tier": "likely",
+      "outputs": [
+        {
+          "space": {
+            "kind": "noul"
+          }
+        }
+      ],
+      "reasons": [
+        "prompt asks for yes or no",
+        "max_tokens <= 16"
+      ],
+      "prompt": {
+        "text": "Is this message spam? Answer yes or no.\n",
+        "dynamic": true
+      },
+      "max_tokens": 1,
+      "drafts": [
+        {
+          "key": "decision",
+          "question": {
+            "type": "noul",
+            "instructions": "Is this message spam? Answer yes or no."
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "175e1c690a8c",
+      "file": "ts/src/switching.ts",
+      "line": 11,
+      "lang": "typescript",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "priority",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "low"
+              },
+              {
+                "name": "high"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "priority",
+          "question": {
+            "type": "choice",
+            "instructions": "[rough] What is the correct `priority` for this input?",
+            "criteria": {
+              "low": null,
+              "high": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "b068a8bda019",
+      "file": "ts/src/switching.ts",
+      "line": 18,
+      "lang": "typescript",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "verdict",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "spam"
+              },
+              {
+                "name": "ham"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "verdict",
+          "question": {
+            "type": "choice",
+            "instructions": "[rough] What is the correct `verdict` for this input?",
+            "criteria": {
+              "spam": null,
+              "ham": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    }
+  ]
+}

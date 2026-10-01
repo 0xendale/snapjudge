@@ -1,0 +1,17 @@
+[workspace]
+members = ["cargo:."]
+
+[dist]
+cargo-dist-version = "0.33.0"
+ci = []
+hosting = ["github"]
+publish-jobs = []
+installers = ["shell", "homebrew", "npm"]
+targets = [
+  "x86_64-unknown-linux-gnu",
+  "aarch64-unknown-linux-gnu",
+  "x86_64-apple-darwin",
+  "aarch64-apple-darwin",
+]
+npm-package = "snapjudge"
+source-tarball = false

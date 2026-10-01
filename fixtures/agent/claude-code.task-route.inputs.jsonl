@@ -1,0 +1,240 @@
+{"site":"agent:claude-code:task-route","input":{"prompt":"Where in this repo is the UserPromptSubmit bridge implemented?"},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Can you trace the request from a hook event to the judge call?"},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Which file defines the allowlisted prompt projection?"},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Help me understand how this repository resolves policy IDs."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Show where the existing scan report gets serialized."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find all callers of the bounded question normalizer."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"How do project and user definitions interact on load?"},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Identify the test that establishes legacy JSON parity."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Where does this CLI store eval cache entries?"},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Walk me through the code that picks a model for a site."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find the registration path for the three MCP tools."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Which struct holds an agent-origin site?"},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Point me to the parser for configured input fields."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Explain the order of source-site tier assignment."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Where does the runtime compare a policy and definition revision?"},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Trace how an optional Score output reaches report.md."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find the code that enforces the state size limit."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"What produces the `provider_call_attempted` log field?"},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Locate the tests for the silent hook deferral shape."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Show how this project computes its policy_revision."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Which code identifies a free-text explanation field?"},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Where are model aliases rejected for policy execution?"},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Describe the path from source files to owned DecisionSite values."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find where unknown question keys are rejected."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"How is the held-out split chosen from input hashes?"},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Show the implementation of the JSONL line parser."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Where do tool calls turn into MCP structured content?"},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find the function used to redact designer snippets."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Explain why the default scanner does not need credentials."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Which part of the code maps Jev Score levels back to values?"},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Where is the JSON schema for a judge response embedded?"},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Trace how a nullable choice becomes null in the exported dataset."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"What code distinguishes wrapper occurrences from definitions?"},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find the module handling source occurrence deduplication."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Tell me which tests pin the score mapping contract."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"How does a cache hit bypass the user budget requirement?"},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Where is the eval reference prompt rendered?"},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Identify the modules behind the policy registry lifecycle."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Which function validates the site_id namespace?"},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find the point where a provider response becomes a gate result."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Where are the TypeSafe request headers assembled?"},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Explain how field-level agreement is computed in this code."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Trace how `--site` identifies legacy source IDs."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Which source files contain the special LangChain counting rule?"},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"What determines the ordering of exported dataset lines?"},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Locate the helper that creates directories without symlinks."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Show how a missing policy becomes a deferred judge result."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find how MCP versions are negotiated on initialize."},"reference":{"route":"explore"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Why did this hook start blocking prompts after last update? Please fix it."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Reproduce the crash in the policy loader with this malformed JSON."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Our UserPromptSubmit context disappears on acceptance; diagnose and repair."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"The judge returns error instead of deferred on timeout. Track the bug."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Fix the case where `--fixture` silently exports measured evidence."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"A broken test passes alone and fails in the full suite; investigate."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Figure out why the hook invokes Jev twice for one prompt."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"I get invalid_input for a valid state object; find the root cause."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"The CLI says policy_stale after reinstalling identical JSON; fix hashing."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Explain why a subprocess hangs when the host closes stdin, and fix it."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"The connector emits unparseable hookSpecificOutput; reproduce the failure."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find the regression causing legacy scan IDs to change."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"A model mismatch is ignored in observe mode; repair its status."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Why does a 422 Jev reply abort the entire batch? Correct handling."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"The reported coverage is greater than one for duplicate inputs; fix it."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"No stdout should be emitted on deferred hook events, but it is; fix."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Trace why a confirmed budget of zero still makes a paid request."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"A secret-looking token appears in the eval cache. Find the leak."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Fix replay when the catalogue snapshot belongs to another base URL."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"A missing configured teacher causes a panic rather than setup error."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Our exported report changes every time despite an unchanged cache; diagnose."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"The template fills the wrong input variable and sends nonsense; repair."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Investigate why a symlinked eval output escapes the workspace."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"One malformed MCP call prevents the following request from completing."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"A free-text explanation is treated as a required choice; fix the gate."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"The first retry ignores Retry-After and burns our budget. Fix it."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Why is a missing provider key printed in the report? Remove the leak."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Fix a bug where site sorting depends on directory traversal order."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"On macOS the installed policy is ignored until restart; find out why."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"A null choice label fails Task 7 validation after export; repair."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"The event parser reads an empty prompt while the host sent text."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Reproduce why two concurrent sessions overwrite each other's cache."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"The dataset hash differs after replay with same rows; diagnose."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"A malformed score response produces an accepted route; fix validation."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"The judge reports auth failure when no policy is installed; fix ordering."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Trace and fix wrong timeout_ms applied to a user prompt."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"The tool accepts absolute output paths despite workspace confinement."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Fix a crash when the hook receives a null session ID."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Why does an expired policy still permit a bounded route? Investigate."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"The reference model returns an empty answer but metrics count agreement."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"A timeout while fetching catalogue is retried indefinitely; fix."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find why the adapter mutates arguments on a deferred result."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"The CLI parses --target 1 and reports 100% agreement; repair parser."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"The config loads project spend permission as user authorization; fix."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Reproduce wrong exit code when UserPromptSubmit fails locally."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"A numeric field takes a string in the state validator; investigate."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Why does `eval --verify` succeed after dataset tampering? Fix it."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"The queue aborts on one teacher refusal instead of recording it."},"reference":{"route":"debug"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Review my latest changes for defects; don't modify anything."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Please examine this PR and list correctness findings."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Is the new policy promotion logic safe? Audit the diff."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Assess the current hook bridge for permission bypasses."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Check the patch against Task 7's spend contract, findings only."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Read the new tests critically for false positives."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Give a read-only security review of our MCP argument parser."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Does this refactor retain the old serialization behavior? Review it."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Evaluate whether our cache keys prevent stale model replay."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find defects in the pending changes before I merge them."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Audit the data-retention code for privacy problems."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Inspect the current test coverage for missed fallback paths."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Do a correctness review of the input validation implementation."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Review the patch that changes how thresholds are exported."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Check my branch for regressions in offline scan behavior."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Please review the revised definitions for ambiguous criteria."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Examine the model-pricing logic for undercharging risks."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Evaluate the new MCP tool schema against its implementation."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Review this migration plan's compatibility assumptions."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Inspect policy verification for cases where evidence can drift."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Look over the CLI exit-code changes and identify surprises."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Assess the wrapper trace patch for unintended duplicate sites."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Check if source snippets remain redacted in the eval cache."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Review our tool run limits for ways around the sample cap."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Critique the policy schema and validator for mismatched rules."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Inspect the branch for scope creep unrelated to Task 8d."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Review the fallback recommendation on provider errors."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Read the adjudication changes and flag unblinded answers."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Does the reader truly accept both generic schema minor versions?"},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Check that experimental policies cannot silently act as measured."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Review for accidental logging of complete prompt text."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Audit the source output path for directory traversal."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Look at the failure accounting and list any missing statuses."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Review the import resolver for shadowing corner cases."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Check whether our split metrics leak calibration labels."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Inspect the changed code for panic paths in the registry."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Assess the new fixture policy for any measured-performance claim."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Review concurrency changes for in-flight billing races."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find any inaccurate claims in the report after this patch."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Check if the scan enhancement accidentally changes legacy JSON."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Review the sample JSONL loader for conflicting-label handling."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Inspect the wiremock tests for untested outbound requests."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Evaluate whether an invalid policy can cause a paid Jev call."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Review the diff for missed parser errors on empty input."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Please check the retry strategy for unbounded waits."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Assess whether Score thresholds use the correct confidence."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Review code changes against the pinned protocol fixtures."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find concrete compatibility risks in this dependency update."},"reference":{"route":"review"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Please consult the current Claude Code hooks documentation."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"What do official MCP docs say about tools/call cancellation?"},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find public examples of UserPromptSubmit hook configuration."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Compare current TypeSafe Jev API models from official sources."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Look up latest OpenRouter data collection controls."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Research how other plugins implement advisory context in hooks."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Check third-party examples of safe process-spawn cancellation."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Gather external guidance on confidence calibration for Choice."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find the latest TypeSafe Noul response schema online."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Compare current Claude plugin manifests from published packages."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Look up the official JSON Schema canonicalization standard."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Research best practices for benchmark holdout split leakage."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find examples of a native Claude Code context-injection hook."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Check current TypeSafe pricing from its official pricing page."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Investigate provider documentation for response usage costs."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Compare upstream MCP stdio framing guidance by version."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find the latest Claude Code command hook timeout semantics."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Look up published research on confidence-aware routing."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Research Rust JSON Schema libraries with offline validation."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Check current OpenRouter catalogue endpoint and price shape."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find official documentation on TypeSafe question criteria design."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Gather public examples of policy staleness detection."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Look up current Claude plugin distribution channels."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Compare externally documented API key handling in MCP servers."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find examples of TypeSafe MultiLabel composition in cookbooks."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Read official RFC 8785 guidance on Unicode key ordering."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Check TypeSafe service retry limits in provider docs."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Investigate release notes for the most recent Claude hook events."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find recent open-source examples of bounded route classifications."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Look up current OpenAI-compatible structured-output modes."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Compare canonical hash implementations across language SDKs."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Check official docs for timeout behavior on MCP tool calls."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Research examples of local fixture-cache redaction before publication."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Gather sources describing limitations of synthetic evaluations."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Look up Claude Code native structured hook response format."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Investigate current docs for nullable answer choices in TypeSafe."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find published examples of host-owned fallback in coding agents."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Compare online docs for avoiding prompt injection in source snippets."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find the latest MCP outputSchema validation guidance."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Consult current ureq docs about non-followed redirects."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Research official limits for TypeSafe question and state sizes."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Locate maintained sample projects using Claude Code MCP config."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find independent explanations of Wilson interval math."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Look up OpenRouter require_parameters provider option semantics."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Compare API docs for optional TypeSafe Score criteria."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Investigate published limits of hand-labeled synthetic datasets."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Check current provider guidance on reportable request IDs."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Find official docs on Claude Code plugin strict validation."},"reference":{"route":"research"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Implement the Claude Code hook adapter from this spec."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Please write a user guide for installing the plugin."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Make the configuration examples easier to read."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Add a command to export a summary as CSV."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Refactor the long hook handler without changing what it does."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Write a short email announcing the next release."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Create a deployment checklist for our CLI binary."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Add an endpoint that lists all installed policies."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Can you design a new icon for our agent integration?"},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Generate a dozen sample support-ticket records."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Set up nightly tests on a macOS runner."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Translate the README into Japanese."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Package this crate for a Homebrew release."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Plan how we should stage rollout of the runtime hook."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Please create a commit with the current code changes."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Can you brainstorm alternative names for the tool?"},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Produce a Word document about the architecture."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Change the output format to include a summary line."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Add an example showing how to call judge over stdin."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Remove redundant blank lines in test fixtures."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Prepare a demo showing accepted and deferred routing."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Create a new table for storing observed events."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Write release notes for the feature branch."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Convert this Markdown example into HTML."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Add a configuration option for local-only operation."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Make the CLI more colorful in interactive mode."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Help me choose between two UI designs for the dashboard."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Run cargo fmt and push the current branch."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Design a manifest for distributing the plugin."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Make a slide deck to explain evaluation metrics."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Add a command-line flag for dry-run installs."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Draft a support reply to a billing question."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Create a synthetic JSONL file for testing the adapter."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Update the examples to use a different site ID."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Write an FAQ about the plugin's limitations."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Implement the new fixture evidence enum variant."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Clean up formatting in the protocol schema."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Create a project task board from this checklist."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Set a reminder to revisit the release next week."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Make the examples directory easier to navigate."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Help me decide a pricing strategy for this product."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Create a new Rust module for fixture management."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Please answer with a haiku about code reviews."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Write a shell script for adapter installation."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Add a changelog entry for this feature."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Can you handle the next task?"},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Please make this project production ready."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:claude-code:task-route","input":{"prompt":"Generate a README diagram of the adapter workflow."},"reference":{"route":"none_of_the_above"}}

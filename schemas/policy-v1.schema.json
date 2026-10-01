@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:snapjudge:schema:policy-v1",
+  "title": "snapjudge policy-v1",
+  "description": "A GatePolicy (redesign §4, §8, §9): gate thresholds bound to one definition id and exact `definition_revision`, a pinned resolved provider model (aliases `jev-latest`/`jev-preview` rejected) and evidence. Strict: no unknown fields except inside `metrics`, no explicit nulls. `policy_revision` is SHA-256 over the RFC 8785 (JCS) canonical JSON of the policy without `policy_revision`; it is always computed, and a stated value must equal it. snapjudge additionally enforces: measured evidence has `metrics.wilson_lower >= target` and `metrics.accepted >= min_accepted`; `metrics.accepted <= metrics.n`; `metrics.target`, when present, equals `target`; integers anywhere inside `metrics` have magnitude at most 2^53 - 1; every threshold key names an output of the bound definition (`output.label` for MultiLabel labels) and every output and every MultiLabel label, required or not, has a threshold.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "id", "definition_id", "definition_revision", "model", "evidence", "thresholds"],
+  "properties": {
+    "schema_version": { "type": "string", "pattern": "^1\\.(0|[1-9][0-9]*)$" },
+    "id": { "$ref": "#/$defs/registryId" },
+    "policy_revision": { "$ref": "#/$defs/revision" },
+    "definition_id": { "$ref": "#/$defs/registryId" },
+    "definition_revision": { "$ref": "#/$defs/revision" },
+    "evidence_revision": { "$ref": "#/$defs/revision" },
+    "model": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[^\\u0000-\\u0020\\u007f-\\u00a0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000\\ufeff]+$",
+      "not": { "enum": ["jev-latest", "jev-preview"] }
+    },
+    "evidence": { "enum": ["measured", "experimental", "fixture"] },
+    "thresholds": {
+      "type": "object",
+      "maxProperties": 256,
+      "propertyNames": { "pattern": "^[A-Za-z_][A-Za-z0-9_-]{0,63}(\\.[A-Za-z_][A-Za-z0-9_-]{0,63})?$" },
+      "additionalProperties": { "$ref": "#/$defs/unit" }
+    },
+    "min_accepted": { "$ref": "#/$defs/safeCount" },
+    "target": { "$ref": "#/$defs/unit" },
+    "dataset": { "type": "string", "maxLength": 1024 },
+    "metrics": {
+      "description": "Extensible: further keys are kept and hashed.",
+      "type": "object",
+      "required": ["accepted", "n", "wilson_lower"],
+      "properties": {
+        "accepted": { "$ref": "#/$defs/safeCount" },
+        "n": { "$ref": "#/$defs/safeCount" },
+        "wilson_lower": { "$ref": "#/$defs/unit" }
+      }
+    }
+  },
+  "if": { "properties": { "evidence": { "const": "measured" } }, "required": ["evidence"] },
+  "then": { "required": ["evidence_revision", "metrics", "target", "min_accepted"] },
+  "$defs": {
+    "registryId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{0,127}$" },
+    "revision": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "unit": { "type": "number", "minimum": 0, "maximum": 1 },
+    "safeCount": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 }
+  }
+}

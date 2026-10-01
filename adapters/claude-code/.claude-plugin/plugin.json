@@ -1,0 +1,6 @@
+{
+  "name": "snapjudge-claude",
+  "version": "0.1.0",
+  "description": "Bounded decision tools and opt-in advisory task routing for Claude Code",
+  "author": { "name": "snapjudge" }
+}

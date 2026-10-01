@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:snapjudge:schema:definition-v1",
+  "title": "snapjudge definition-v1",
+  "description": "An executable DecisionDefinition (redesign §4, §8): named TypeSafe Jev questions, the input contract of the request `state`, and output mappings, bound to one site. Strict: no unknown fields, no explicit nulls for omittable fields (Choice criteria descriptions are the only nullable values). `definition_revision` is SHA-256 over the RFC 8785 (JCS) canonical JSON of {site_id, input_schema, questions, outputs} with defaults filled in (`cutoff` 0.5); it is always computed, and a stated value must equal it. snapjudge additionally enforces what JSON Schema cannot express: outputs reference existing questions of the right type, unique output/label/input-field names, `nullable_option` is a criteria key of its question, and Score `level_values` has one strictly monotonic value per criteria level.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "id", "site_id", "input_schema", "questions", "outputs"],
+  "properties": {
+    "schema_version": { "$ref": "#/$defs/version" },
+    "id": { "$ref": "#/$defs/registryId" },
+    "site_id": { "$ref": "#/$defs/siteId" },
+    "definition_revision": { "$ref": "#/$defs/revision" },
+    "input_schema": { "$ref": "#/$defs/inputSchema" },
+    "questions": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 64,
+      "propertyNames": { "$ref": "#/$defs/name" },
+      "additionalProperties": { "$ref": "#/$defs/question" }
+    },
+    "outputs": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 64,
+      "items": { "$ref": "#/$defs/output" }
+    }
+  },
+  "$defs": {
+    "version": { "type": "string", "pattern": "^1\\.(0|[1-9][0-9]*)$" },
+    "registryId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{0,127}$" },
+    "revision": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "siteId": {
+      "description": "Origin namespace, then a non-empty token without whitespace (ECMA-262 \\s) or control characters.",
+      "type": "string",
+      "maxLength": 256,
+      "pattern": "^(source|agent|runtime):[^\\u0000-\\u0020\\u007f-\\u00a0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000\\ufeff]+$"
+    },
+    "name": { "type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_-]{0,63}$" },
+    "text": { "type": "string", "maxLength": 16384 },
+    "instructions": { "type": "string", "minLength": 1, "maxLength": 16384 },
+    "unit": { "type": "number", "minimum": 0, "maximum": 1 },
+    "inputSchema": {
+      "description": "Input contract of `state`: a JSON object with exactly these keys (at most 98304 bytes of compact JSON), required fields present, values of the field's kind.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fields"],
+      "properties": {
+        "fields": {
+          "type": "array",
+          "maxItems": 64,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "description", "kind", "required"],
+            "properties": {
+              "name": { "$ref": "#/$defs/name" },
+              "description": { "$ref": "#/$defs/text" },
+              "kind": { "enum": ["string", "number", "integer", "boolean", "object", "array"] },
+              "required": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    },
+    "question": {
+      "description": "A TypeSafe Jev question. In v1 `instructions` and criteria are strings only; the provider also accepts JSON objects and arrays there, and adding them is a later schema and revision change.",
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "instructions", "criteria"],
+          "properties": {
+            "type": { "const": "choice" },
+            "instructions": { "$ref": "#/$defs/instructions" },
+            "criteria": {
+              "type": "object",
+              "minProperties": 1,
+              "maxProperties": 255,
+              "propertyNames": { "minLength": 1, "maxLength": 256 },
+              "additionalProperties": { "anyOf": [{ "$ref": "#/$defs/text" }, { "type": "null" }] }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "instructions"],
+          "properties": {
+            "type": { "const": "noul" },
+            "instructions": { "$ref": "#/$defs/instructions" },
+            "criteria": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["true", "false"],
+              "properties": {
+                "true": { "$ref": "#/$defs/instructions" },
+                "false": { "$ref": "#/$defs/instructions" }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "instructions", "criteria"],
+          "properties": {
+            "type": { "const": "score" },
+            "instructions": { "$ref": "#/$defs/instructions" },
+            "criteria": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 10,
+              "items": { "$ref": "#/$defs/instructions" }
+            }
+          }
+        }
+      ]
+    },
+    "output": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["shape", "name", "question", "required"],
+          "properties": {
+            "shape": { "const": "choice" },
+            "name": { "$ref": "#/$defs/name" },
+            "question": { "$ref": "#/$defs/name" },
+            "required": { "type": "boolean" },
+            "nullable_option": { "type": "string", "minLength": 1, "maxLength": 256 }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["shape", "name", "question", "required"],
+          "properties": {
+            "shape": { "const": "noul" },
+            "name": { "$ref": "#/$defs/name" },
+            "question": { "$ref": "#/$defs/name" },
+            "required": { "type": "boolean" },
+            "cutoff": { "$ref": "#/$defs/unit", "default": 0.5 }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["shape", "name", "labels"],
+          "properties": {
+            "shape": { "const": "multilabel" },
+            "name": { "$ref": "#/$defs/name" },
+            "labels": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 64,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["name", "question", "required"],
+                "properties": {
+                  "name": { "$ref": "#/$defs/name" },
+                  "question": { "$ref": "#/$defs/name" },
+                  "cutoff": { "$ref": "#/$defs/unit", "default": 0.5 },
+                  "required": { "type": "boolean" }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["shape", "name", "question", "required", "level_values"],
+          "properties": {
+            "shape": { "const": "score" },
+            "name": { "$ref": "#/$defs/name" },
+            "question": { "$ref": "#/$defs/name" },
+            "required": { "type": "boolean" },
+            "level_values": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 10,
+              "items": { "type": "number", "minimum": -1e15, "maximum": 1e15 }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

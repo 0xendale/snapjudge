@@ -1,0 +1,12 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.14/schema.json",
+  "linter": {
+    "rules": {
+      "suspicious": { "noExplicitAny": "error" },
+      "style": { "noNonNullAssertion": "error" },
+      "complexity": { "useLiteralKeys": "off" }
+    }
+  },
+  "formatter": { "indentStyle": "space", "indentWidth": 2, "lineWidth": 100 },
+  "javascript": { "formatter": { "quoteStyle": "double", "semicolons": "asNeeded" } }
+}

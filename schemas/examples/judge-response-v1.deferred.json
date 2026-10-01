@@ -1,0 +1,44 @@
+{
+  "protocol_version": 1,
+  "request_id": "demo-route-001",
+  "site_id": "runtime:task-route",
+  "status": "deferred",
+  "answers": {
+    "route": {
+      "type": "choice",
+      "value": "debug",
+      "probabilities": {
+        "debug": 0.61,
+        "explore": 0.3,
+        "none_of_the_above": 0.02,
+        "research": 0.03,
+        "review": 0.04
+      },
+      "confidence": 0.55,
+      "gate_confidence": 0.55,
+      "passed": false,
+      "reasons": [
+        "low_confidence"
+      ]
+    }
+  },
+  "gate": {
+    "policy_id": "task-route-demo",
+    "evidence": "experimental",
+    "passed": false,
+    "reasons": [
+      "low_confidence"
+    ]
+  },
+  "provider": {
+    "name": "typesafe",
+    "model": "jev-1.13.0"
+  },
+  "fallback_recommended": true,
+  "fallback_owner": "host",
+  "metrics": {
+    "duration_ms": 388,
+    "cache_hit": false
+  },
+  "error": null
+}

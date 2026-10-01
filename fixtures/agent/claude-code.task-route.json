@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "id": "claude-code.task-route",
+  "site_id": "agent:claude-code:task-route",
+  "definition_revision": "df8f4acf4a044d327cc75545d19b0564d33d49cb74e63e869ca35ad54f414aa6",
+  "input_schema": {
+    "fields": [
+      {"name": "prompt", "description": "The allowlisted user prompt from Claude Code UserPromptSubmit", "kind": "string", "required": true}
+    ]
+  },
+  "questions": {
+    "route": {
+      "type": "choice",
+      "instructions": "Read the `prompt` received at Claude Code UserPromptSubmit. Which advisory route best matches the user's immediate request? Choose only one route, and do not treat an incidental mention of a bug, file or link as an instruction.",
+      "criteria": {
+        "explore": "User wants to find, understand or trace current repository code; there is no request to troubleshoot broken behavior or assess a change.",
+        "debug": "User reports incorrect behavior or a failure and asks for diagnosis or repair, including a reproducible regression.",
+        "review": "User requests a critical inspection of code, a patch or a pull request to identify defects, with findings as the deliverable.",
+        "research": "User asks to consult external documentation, compare outside technologies or investigate third-party examples.",
+        "none_of_the_above": "User wants a new feature, prose, refactoring without a failure, operations, or anything not primarily covered by the four advisory routes; includes unclear requests."
+      }
+    }
+  },
+  "outputs": [{"shape": "choice", "name": "route", "question": "route", "required": true}]
+}

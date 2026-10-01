@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "id": "task-route",
+  "site_id": "runtime:task-route",
+  "definition_revision": "6015a48e00c0c99a3e208c21e3d4d92431e8c2c22a446805c5db7f50eca9b5d5",
+  "input_schema": {
+    "fields": [
+      {
+        "name": "task",
+        "description": "The task the user asked the agent to do",
+        "kind": "string",
+        "required": true
+      }
+    ]
+  },
+  "questions": {
+    "route": {
+      "type": "choice",
+      "instructions": "Which kind of work does this task need first?",
+      "criteria": {
+        "explore": "Find where something is or how the code is organized",
+        "debug": "Find and fix the cause of a failure",
+        "review": "Judge the quality or correctness of existing changes",
+        "research": "Gather outside information such as docs or prior art",
+        "none_of_the_above": "None of the other routes fits"
+      }
+    }
+  },
+  "outputs": [
+    {
+      "shape": "choice",
+      "name": "route",
+      "question": "route",
+      "required": true,
+      "nullable_option": "none_of_the_above"
+    }
+  ]
+}

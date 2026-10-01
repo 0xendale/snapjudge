@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "snapjudge": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/scripts/launch-mcp.sh",
+      "args": ["${CLAUDE_PROJECT_DIR}"]
+    }
+  }
+}

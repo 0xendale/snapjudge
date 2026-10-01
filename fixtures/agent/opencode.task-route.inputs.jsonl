@@ -1,0 +1,240 @@
+{"site":"agent:opencode:task-route","input":{"task":"Locate the function that parses workspace configuration."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Trace how scan results reach the JSON reporter."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Which module owns canonical definition hashing?"},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Show callers of the policy resolver without editing them."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Map the flow from CLI arguments to dataset splitting."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find where the registry decides project versus user precedence."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Explain how schema versions are accepted by the site reader."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Identify which tests cover nullable choice mappings."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find the implementation of the TypeSafe request cache key."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Describe how wrapper callers are discovered across imports."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Where is the MCP initialization response assembled?"},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"List the paths that normalize Score answers."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"What code determines whether a scan site is Review tier?"},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Trace the ownership of the source-location byte offset."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find the place where reference labels are parsed from JSONL."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Explain why a wrapper definition is omitted from legacy JSON."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Which struct stores the retrieved model catalogue snapshot?"},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Track where the judge checks an installed policy revision."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Locate the code that chooses calibration and held-out rows."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Document the path a scanned Python call takes through tiering."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find existing tests for the zero-budget path."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"What are the source modules behind the pretty scan output?"},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Trace the origin of the report's evidence revision field."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Locate parsing of named Python function arguments."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Which code path filters out unsupported project file extensions?"},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Identify where the CLI formats a budget estimate."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find the definition schema's input-field validation logic."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Walk through how the exported threshold keys are named."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Which module decides whether an answer should defer?"},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Explain the difference between a site id and a definition id in this crate."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Locate the code that redacts a source snippet before design."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find all uses of the project cache directory resolver."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Trace static prompt text into the reconstructed reference request."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Which files implement the multi-label gate?"},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Show how an invalid model name becomes a judge error."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Where is the per-attempt budget reservation settled?"},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Trace `scan --schema` to the generic serialization code."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find the code that groups duplicate inputs by canonical hash."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"What is the exact ownership boundary between scan and eval?"},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Identify the function reading one policy file from a registry."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Locate the conversion from Jev confidence to gate confidence."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"How are scan sites ordered before report emission?"},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find the path used for command-line JSON report writing."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Which code tags a reference as teacher-assumed?"},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Explain why optional outputs still receive a threshold."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Locate the code validating a provider response's probability keys."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find where tool paths are confined to workspace root."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Trace the JSONL input origin into the export dataset."},"reference":{"route":"explore"}}
+{"site":"agent:opencode:task-route","input":{"task":"Reproduce why eval exits 1 on a valid labeled input file and fix it."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"The CLI hangs after Ctrl-C during a slow TypeSafe reply; trace and repair."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find the regression causing duplicate rows to inflate held-out counts."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Fix panic when an empty choice criterion reaches normalization."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"A stale policy is accepted despite a changed definition; investigate root cause."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"The TypeScript scanner misses imported aliases after recent changes; reproduce."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Why does keyless replay make an HTTP request on cache hit? Fix the path."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"A missing catalogue snapshot reports a misleading auth error; correct it."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Trace the wrong exit status for a judge protocol mismatch."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Fix the scan golden regression after wrapper integration."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"MCP ping stops responding after an invalid tools/call; diagnose it."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"The budget ledger charges a cache hit; find and repair the double count."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"A zero-token response bypasses the failure counter; reproduce the bug."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Explain and fix a flaky split test that fails only on macOS."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"The JSON schema rejects a valid generic 1.0 site; isolate the mismatch."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Fix a crash when scanning a symlinked project path."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Why is a Jev 422 classified as a retryable outage? Repair mapping."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find why output threshold 0.6 is serialized as 0.5 in policy.json."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"A malformed dataset line silently disappears; make failure visible."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Investigate a deadlock in eight concurrent reference workers."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Fix intermittent auth failures when `.env` has quoted values."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"A measured policy survives after its evidence file changes; trace the stale read."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"The old policy stays on disk after a defer-all run; reproduce and fix."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"The tool writes through a symlinked artifact folder; identify the bypass."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"An input with an extra field passes validation unexpectedly; fix it."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"A TypeSafe model alias changes between replay and run; diagnose stale cache use."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find why a Choice tie picks a different option after installing definition."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"The client retries a 401 until budget runs out; fix non-retryable handling."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Fix a wrong Score level when the reference value falls between levels."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"A missing API key is printed instead of its variable name; locate leak."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"MCP response leaks state into stderr on invalid input; investigate."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"The scanner reports the same call twice through a wrapper cycle; fix it."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Why does a TypeSafe timeout produce accepted status? Diagnose state transition."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Reproduce a race where cache writes truncate JSON under concurrent eval."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"A source site with null label is rejected during export; fix mapping."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"The user budget is overridden by a larger project budget; repair precedence."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find why fallback uses the wrong reference model for one site."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"The report's Wilson lower bound changes after keyless replay; investigate."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Reproduce an out-of-bounds panic on a 10-level Score response."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Fix a rejected negative price that shows as free instead of unknown."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"The output file is replaced even when schema validation fails; trace writes."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"A malformed MCP ID causes stdout contamination; reproduce and fix."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find why Jev input tokens are charged twice after retry."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"The source scanner skips a valid .tsx file on case-sensitive paths; repair."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"A failed reference completion is counted as agreement; correct metrics."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Diagnose why cancellation leaves an in-flight reservation forever."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"The same policy revision hashes differently after reload; find nondeterminism."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Fix wrong model-mismatch reason when provider changes pinned model."},"reference":{"route":"debug"}}
+{"site":"agent:opencode:task-route","input":{"task":"Review this patch for correctness; return findings by severity."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Audit the new cache invalidation logic for data races."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Check my PR for regressions without editing files."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Inspect the registry implementation for security weaknesses."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Validate the proposed migration for backward compatibility."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Look over the eval pipeline diff and identify missing error cases."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Assess these changes against the spec; do not implement fixes."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Review the CLI flag parsing tests for weak assertions."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find correctness risks in the new threshold sweep code."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Perform a read-only review of the symlink confinement patch."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Check whether the API client's retry logic has billing risks."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Review the staged changes for accidentally logged credentials."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Inspect the new schema migration for omitted required fields."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Give code-review findings on our MCP transcript parser."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Critique the new definition validator for edge-case gaps."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Review a proposed cache format before we publish fixtures."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Assess the recent commit for unsafe filesystem assumptions."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find any changes that break the legacy scan JSON contract."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Review the budget checks for unauthorized spending paths."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Check the test suite for uncovered model mismatch behavior."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Inspect our Rust API surface for invalid states or leaky types."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Read the PR diff and flag silent failure patterns."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Verify that this refactor preserves the policy validator's contract."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Review the implementation of duplicate grouping for bias."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Inspect the exporter for stale policy artifacts after failure."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find subtle parsing mistakes in the supplied-label input path."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Evaluate code quality of the new scanner review question logic."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Review the diff for unintended network calls in offline mode."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Assess whether exported evidence can be mistaken for measured data."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Check existing tests and implementation for replay nondeterminism."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Review the error messages for sensitive request content."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Inspect the tool's output schema for mismatches with actual output."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Assess the new CLI command for unexpected flag combinations."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Review the proposed agent definition for ambiguous route criteria."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Check if report claims exceed what the held-out set supports."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Review the latest changes for off-by-one split errors."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Evaluate the documented install flow against the code, findings only."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Inspect the scanner's wrapper-matching rule for false positives."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Review the source trace changes for ownership and lifetime risks."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Look at the retry patch and flag ignored cancellation signals."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Critically assess whether the tests prove no paid request on refusal."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Review the provider response validation for inconsistent scores."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Check if optional labels accidentally influence required gates."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Inspect the current branch for accidental backward-incompatible JSON."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Review the new docs commands for reproducibility problems."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find missing boundaries in the code handling user-supplied paths."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Review these changes for inconsistent model pinning."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Check the PR's policy math and report only concrete defects."},"reference":{"route":"review"}}
+{"site":"agent:opencode:task-route","input":{"task":"Look up current TypeSafe Choice request syntax in official docs."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Compare recent OpenRouter pricing documentation for two models."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find public examples of secure MCP stdio servers."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Check the latest Claude Code hook output contract externally."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Research how OpenCode plugins expose custom tools today."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Summarize official Rust serde_json canonicalizer compatibility notes."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find upstream guidance on TypeSafe rate limits and retries."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Compare MCP protocol versions using the published specification."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find maintained OSS examples of JSON Schema validation in Rust."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Consult external docs for the Noul response structure."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Investigate current provider data-retention policies for OpenRouter."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Look for public benchmarks of canonical JSON implementations."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Gather official examples of Claude UserPromptSubmit events."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Compare published approaches to confidence calibration for choices."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Research current OpenAI-compatible structured-output constraints."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Check how the newest TypeSafe SDK names the System One method."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find current release notes for the MCP tools/list response shape."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Look up official guidance for JCS SHA-256 over Unicode JSON."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Investigate how other Rust CLIs safely create nested output directories."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find published examples of dataset split leakage from duplicates."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Compare public docs for OpenCode tool abort propagation."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Check official TypeSafe documentation on version-pinned Jev models."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Gather external examples of blinded answer adjudication protocols."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Research the current maximum TypeSafe Choice option count."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Locate current Anthropic structured-output API documentation."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Compare public schema-version compatibility practices for MCP tools."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find recent examples of safe API-key loading without leaking logs."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Look up official TypeSafe Score level limits and examples."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Gather current OpenRouter model-catalogue endpoint documentation."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Investigate the latest Rust clap mutual-exclusion attribute syntax."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Search external issue trackers for ureq loopback proxy behavior."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find docs comparing Wilson intervals to naive agreement estimates."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Check canonical JSON library docs for float ordering and precision."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Compare official OpenCode plugin installation surfaces."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Research current Claude plugin manifest validation commands."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Look up how MCP transports represent tool execution errors."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Gather upstream recommendations for bounded input projections in hooks."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Check published usage accounting for TypeSafe System One replies."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find external examples of deterministic synthetic routing datasets."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Compare current docs for JSON Schema draft versions in MCP."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Consult official guides on API response validation before caching."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find published host-event field restrictions for Claude Code prompts."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Look up official data-collection controls in OpenRouter requests."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Compare public TypeSafe examples of nullable Choice options."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Research recent MCP cancellation notification guidance."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Gather documentation on pricing unknowns in routed LLM requests."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Look up official OpenRouter provider privacy parameter semantics."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Find external references for JSONL fixture publication hygiene."},"reference":{"route":"research"}}
+{"site":"agent:opencode:task-route","input":{"task":"Implement a new CSV export command for eval results."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Write release notes for the next version."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Refactor the CLI module into smaller files, preserving behavior."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Add a dark theme to the documentation site."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Create a data migration from old policy files to v2."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Can you say hello?"},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Rename the run.json field from started to started_at."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Plan an architecture for an offline interactive tutorial."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Add an optional JSON field to the request protocol."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Deploy the existing binary to a staging machine."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Format all Markdown files without changing their content."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Sketch three product names for a routing assistant."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Build a small dashboard that visualizes the exported metrics."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Please create a pull request for the completed branch."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Install the pinned Rust toolchain and run the binary."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Turn this checklist into a one-page onboarding guide."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Generate a sample config file with documented defaults."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Add tests for the successful policy-install command."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Design a logo for the snapjudge CLI."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Organize these existing docs into a navigation tree."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Translate the usage guide into Vietnamese."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Create a release build with debug symbols disabled."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Add a fixture flag to the eval command."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Prepare a changelog from the last ten commits."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Run formatting on the repository and commit only the changes."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Set up a periodic backup job for policy artifacts."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Draft a short explanation of confidence gates for users."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Implement support for a new XML report format."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Replace the test fixture's company names with fictional ones."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Help me prioritize next quarter's feature roadmap."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Create a shell alias for running the test suite."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Make a standalone demo video of the scan output."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Update the binary version string in package metadata."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Remove an unused import from the judge module."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Write a migration guide for old cache users."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Make the help message shorter and easier to read."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Add a spinner while the CLI evaluates inputs."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Package the project as a Homebrew formula."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Design a database table for retaining run summaries."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Restructure the examples directory by protocol version."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Add a command to purge old observations."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Tell me a joke about static analysis."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Create a presentation explaining the project to teammates."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Adjust the default sample count for eval."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Generate a JSON file with fake purchase orders."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Plan a customer interview about the developer experience."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Please handle this for me sometime later."},"reference":{"route":"none_of_the_above"}}
+{"site":"agent:opencode:task-route","input":{"task":"Make this codebase more fun to work in."},"reference":{"route":"none_of_the_above"}}

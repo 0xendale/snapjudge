@@ -1,0 +1,98 @@
+{
+  "protocol_version": 1,
+  "request_id": "ticket-4812",
+  "site_id": "runtime:ticket-triage",
+  "status": "accepted",
+  "answers": {
+    "team": {
+      "type": "choice",
+      "value": "billing",
+      "probabilities": {
+        "billing": 0.94,
+        "none_of_the_above": 0.01,
+        "sales": 0.02,
+        "support": 0.03
+      },
+      "confidence": 0.93,
+      "gate_confidence": 0.93,
+      "passed": true,
+      "reasons": []
+    },
+    "urgent": {
+      "type": "noul",
+      "value": false,
+      "probability_yes": 0.04,
+      "cutoff": 0.5,
+      "gate_confidence": 0.96,
+      "passed": true,
+      "reasons": []
+    },
+    "tags": {
+      "type": "multilabel",
+      "value": [
+        "billing"
+      ],
+      "labels": {
+        "billing": {
+          "value": true,
+          "probability_yes": 0.97,
+          "cutoff": 0.5,
+          "gate_confidence": 0.97,
+          "passed": true
+        },
+        "bug": {
+          "value": false,
+          "probability_yes": 0.08,
+          "cutoff": 0.5,
+          "gate_confidence": 0.92,
+          "passed": true
+        },
+        "security": {
+          "value": false,
+          "probability_yes": 0.12,
+          "cutoff": 0.3,
+          "gate_confidence": 0.88,
+          "passed": true
+        }
+      },
+      "passed": true,
+      "reasons": []
+    },
+    "sentiment": {
+      "type": "score",
+      "value": -0.65,
+      "score": 1.35,
+      "level": 1,
+      "probabilities": {
+        "0": 0.05,
+        "1": 0.6,
+        "2": 0.3,
+        "3": 0.05,
+        "4": 0.0
+      },
+      "confidence": 0.58,
+      "gate_confidence": 0.58,
+      "passed": false,
+      "reasons": [
+        "low_confidence"
+      ]
+    }
+  },
+  "gate": {
+    "policy_id": "ticket-triage-measured",
+    "evidence": "measured",
+    "passed": true,
+    "reasons": []
+  },
+  "provider": {
+    "name": "typesafe",
+    "model": "jev-1.13.0"
+  },
+  "fallback_recommended": false,
+  "fallback_owner": "host",
+  "metrics": {
+    "duration_ms": 412,
+    "cache_hit": false
+  },
+  "error": null
+}

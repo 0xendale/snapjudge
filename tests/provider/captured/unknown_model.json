@@ -1,0 +1,25 @@
+{
+  "captured": "2026-09-28",
+  "endpoint": "POST https://api.typesafe.ai/v1/systemone",
+  "request": {
+    "model": "jev-0.0.0-nope",
+    "state": "x",
+    "questions": {
+      "q": {
+        "type": "noul",
+        "instructions": "Is x a letter?"
+      }
+    }
+  },
+  "status": 400,
+  "headers": {
+    "content-type": "application/json",
+    "x-typesafe-request-id": "req_01a0e514d197713eb5fd7c2c9567a3fc"
+  },
+  "body": {
+    "detail": {
+      "error_type": "api_usage_error",
+      "message": "Unknown model: jev-0.0.0-nope"
+    }
+  }
+}

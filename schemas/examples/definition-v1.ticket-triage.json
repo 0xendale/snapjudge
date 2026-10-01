@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "id": "ticket-triage",
+  "site_id": "runtime:ticket-triage",
+  "definition_revision": "af1fc5bb79fc02204d83676bf772ec20288b962fb5a1746451f678e0bb12357c",
+  "input_schema": {
+    "fields": [
+      {
+        "name": "subject",
+        "description": "Ticket subject line",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "body",
+        "description": "Ticket body",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "attachments",
+        "description": "Number of attachments",
+        "kind": "integer",
+        "required": false
+      }
+    ]
+  },
+  "questions": {
+    "team": {
+      "type": "choice",
+      "instructions": "Which team should handle this ticket?",
+      "criteria": {
+        "billing": "Payments, invoices, refunds",
+        "support": "Product questions and bugs",
+        "sales": null,
+        "none_of_the_above": "No team fits"
+      }
+    },
+    "urgent": {
+      "type": "noul",
+      "instructions": "Does this ticket need a reply within one hour?",
+      "criteria": {
+        "true": "Outage, data loss or security exposure",
+        "false": "Anything that can wait"
+      }
+    },
+    "tag_billing": {
+      "type": "noul",
+      "instructions": "Is this ticket about billing?"
+    },
+    "tag_bug": {
+      "type": "noul",
+      "instructions": "Does this ticket report a bug?"
+    },
+    "tag_security": {
+      "type": "noul",
+      "instructions": "Does this ticket mention a security concern?"
+    },
+    "sentiment": {
+      "type": "score",
+      "instructions": "How does the customer feel?",
+      "criteria": [
+        "Angry",
+        "Unhappy",
+        "Neutral",
+        "Satisfied",
+        "Delighted"
+      ]
+    }
+  },
+  "outputs": [
+    {
+      "shape": "choice",
+      "name": "team",
+      "question": "team",
+      "required": true,
+      "nullable_option": "none_of_the_above"
+    },
+    {
+      "shape": "noul",
+      "name": "urgent",
+      "question": "urgent",
+      "required": true,
+      "cutoff": 0.5
+    },
+    {
+      "shape": "multilabel",
+      "name": "tags",
+      "labels": [
+        {
+          "name": "billing",
+          "question": "tag_billing",
+          "cutoff": 0.5,
+          "required": true
+        },
+        {
+          "name": "bug",
+          "question": "tag_bug",
+          "cutoff": 0.5,
+          "required": true
+        },
+        {
+          "name": "security",
+          "question": "tag_security",
+          "cutoff": 0.3,
+          "required": false
+        }
+      ]
+    },
+    {
+      "shape": "score",
+      "name": "sentiment",
+      "question": "sentiment",
+      "required": false,
+      "level_values": [
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "id": "opencode.task-route",
+  "site_id": "agent:opencode:task-route",
+  "definition_revision": "3a4bc3c29ff9860516a916cb407fb31d0cb77fd6e3045b234575415dc1bd8206",
+  "input_schema": {
+    "fields": [
+      {"name": "task", "description": "The task text passed to the OpenCode dispatch tool", "kind": "string", "required": true}
+    ]
+  },
+  "questions": {
+    "route": {
+      "type": "choice",
+      "instructions": "Given the `task` text passed to the OpenCode dispatch tool, which specialist should take the first bounded step? Select the main requested action, not incidental words or background context.",
+      "criteria": {
+        "explore": "Locate or explain existing repository code, call paths, ownership or structure. No failure diagnosis or change review is requested.",
+        "debug": "Reproduce, trace and fix a reported failure, crash, regression or incorrect runtime behavior. A failing test needing diagnosis belongs here.",
+        "review": "Inspect existing code or a diff for defects, correctness, risks or regressions without being asked to implement a fix.",
+        "research": "Gather and compare information outside this repository, including current documentation, external APIs or open-source examples.",
+        "none_of_the_above": "The task asks for implementation, writing, design, deployment, administration, or another action rather than exploration, debugging, review or external research; use this also when the requested first action is not clear."
+      }
+    }
+  },
+  "outputs": [{"shape": "choice", "name": "route", "question": "route", "required": true}]
+}

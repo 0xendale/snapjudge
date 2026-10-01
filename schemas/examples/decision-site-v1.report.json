@@ -1,0 +1,645 @@
+{
+  "schema": "decision-site-v1",
+  "schema_version": "1.0",
+  "root": "tests/fixtures_site",
+  "files_scanned": 4,
+  "files_skipped": 0,
+  "summary": {
+    "call_sites": 6,
+    "sure": 2,
+    "likely": 0,
+    "review": 3,
+    "not_decision": 1,
+    "langchain_excluded": 0,
+    "counted": 6,
+    "decisions": 2,
+    "decision_pct": 33.3,
+    "wrapper_definitions": 1
+  },
+  "sites": [
+    {
+      "schema_version": "1.0",
+      "id": "source:43841ad70b71",
+      "source_revision": "15ef38de247e07048b76954e082dd0d970e5d7d9da729f06929dae0de9178922",
+      "origin": "source",
+      "source": {
+        "file": "app.py",
+        "line": 16,
+        "byte_offset": 214,
+        "lang": "python",
+        "sdk": "openai",
+        "api": "chat.completions.parse",
+        "via": [
+          "llm.py:6 ask"
+        ]
+      },
+      "model": "gpt-4o-mini",
+      "prompt": {
+        "text": "Is this spam? ",
+        "dynamic": true
+      },
+      "outputs": [
+        {
+          "name": "spam",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "yes"
+              },
+              {
+                "name": "no"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "kind": "occurrence",
+      "tier": "sure",
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "drafts": [
+        {
+          "key": "spam",
+          "question": {
+            "type": "choice",
+            "instructions": "Is this spam?",
+            "criteria": {
+              "yes": null,
+              "no": null
+            }
+          },
+          "quality": "rough"
+        }
+      ],
+      "provenance": {
+        "disposition": "distinct",
+        "depth": 1,
+        "occurrence": {
+          "file": "app.py",
+          "byte_offset": 214,
+          "line": 16
+        },
+        "alternatives": [
+          {
+            "edge": {
+              "id": "bf13efc89117",
+              "caller": {
+                "file": "app.py",
+                "byte_offset": 214,
+                "line": 16
+              },
+              "callee": {
+                "file": "llm.py",
+                "byte_offset": 85,
+                "line": 7
+              },
+              "depth": 1,
+              "label": "llm.py:6 ask",
+              "bindings": [
+                {
+                  "key": "messages",
+                  "role": "prompt",
+                  "slot": "param:0"
+                },
+                {
+                  "key": "response_format",
+                  "role": "schema",
+                  "slot": "param:1"
+                }
+              ],
+              "origins": [
+                {
+                  "file": "llm.py",
+                  "byte_offset": 85,
+                  "line": 7
+                }
+              ],
+              "kind": "distinct"
+            },
+            "sdk": "openai",
+            "api": "chat.completions.parse",
+            "model": "gpt-4o-mini",
+            "tier": "sure",
+            "outputs": [
+              {
+                "name": "spam",
+                "space": {
+                  "kind": "choice",
+                  "options": [
+                    {
+                      "name": "yes"
+                    },
+                    {
+                      "name": "no"
+                    }
+                  ],
+                  "nullable": false
+                }
+              }
+            ],
+            "prompt": {
+              "text": "Is this spam? ",
+              "dynamic": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "id": "source:af412bc2144f",
+      "source_revision": "1eeebc4354b11cbc2f2bd55c2ff429b96d6ddf59f63788ad6e410247d855e786",
+      "origin": "source",
+      "source": {
+        "file": "app.py",
+        "line": 20,
+        "byte_offset": 320,
+        "lang": "python",
+        "sdk": "openai",
+        "api": "chat.completions.parse",
+        "via": []
+      },
+      "model": "gpt-4o",
+      "prompt": {
+        "text": "Is this spam? ",
+        "dynamic": true
+      },
+      "outputs": [
+        {
+          "name": "spam",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "yes"
+              },
+              {
+                "name": "no"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "kind": "occurrence",
+      "tier": "sure",
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "drafts": [
+        {
+          "key": "spam",
+          "question": {
+            "type": "choice",
+            "instructions": "Is this spam?",
+            "criteria": {
+              "yes": null,
+              "no": null
+            }
+          },
+          "quality": "rough"
+        }
+      ],
+      "provenance": {
+        "disposition": "direct",
+        "depth": 0,
+        "occurrence": {
+          "file": "app.py",
+          "byte_offset": 320,
+          "line": 20
+        }
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "id": "source:faf9ed6b4dd7",
+      "source_revision": "a02b3661df20c6b40498410d078ff104a083980e1963dc49b7e14785f0b4f5d3",
+      "origin": "source",
+      "source": {
+        "file": "classifiers.py",
+        "line": 15,
+        "byte_offset": 253,
+        "lang": "python",
+        "sdk": "openai",
+        "api": "chat.completions.parse",
+        "via": []
+      },
+      "model": "gpt-4o-mini",
+      "prompt": {
+        "dynamic": true
+      },
+      "outputs": [],
+      "kind": "occurrence",
+      "tier": "review",
+      "reasons": [
+        "schema passed as parameter `categories`"
+      ],
+      "drafts": [],
+      "provenance": {
+        "disposition": "no_callers",
+        "depth": 0,
+        "occurrence": {
+          "file": "classifiers.py",
+          "byte_offset": 253,
+          "line": 15
+        },
+        "callers": [
+          {
+            "id": "33873506b63a",
+            "caller": {
+              "file": "classifiers.py",
+              "byte_offset": 712,
+              "line": 32
+            },
+            "callee": {
+              "file": "classifiers.py",
+              "byte_offset": 253,
+              "line": 15
+            },
+            "depth": 1,
+            "label": "classifiers.py:14 categorize",
+            "bindings": [
+              {
+                "key": "messages",
+                "role": "prompt",
+                "slot": "param:0"
+              },
+              {
+                "key": "response_format",
+                "role": "schema",
+                "slot": "param:1"
+              }
+            ],
+            "origins": [
+              {
+                "file": "classifiers.py",
+                "byte_offset": 253,
+                "line": 15
+              }
+            ],
+            "kind": "ambiguous"
+          }
+        ],
+        "reason_codes": [
+          "no_callers"
+        ]
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "id": "source:d454e7aab464",
+      "source_revision": "fe4c958a315f3eb478ce981a254961705eb19166af838026a6b01fa830e8c487",
+      "origin": "source",
+      "source": {
+        "file": "classifiers.py",
+        "line": 24,
+        "byte_offset": 501,
+        "lang": "python",
+        "sdk": "openai",
+        "api": "chat.completions.parse",
+        "via": []
+      },
+      "model": "gpt-4o",
+      "prompt": {
+        "dynamic": true
+      },
+      "outputs": [],
+      "kind": "occurrence",
+      "tier": "review",
+      "reasons": [
+        "schema passed as parameter `categories`"
+      ],
+      "drafts": [],
+      "provenance": {
+        "disposition": "no_callers",
+        "depth": 0,
+        "occurrence": {
+          "file": "classifiers.py",
+          "byte_offset": 501,
+          "line": 24
+        },
+        "callers": [
+          {
+            "id": "24a1bd4430e7",
+            "caller": {
+              "file": "classifiers.py",
+              "byte_offset": 712,
+              "line": 32
+            },
+            "callee": {
+              "file": "classifiers.py",
+              "byte_offset": 501,
+              "line": 24
+            },
+            "depth": 1,
+            "label": "classifiers.py:23 categorize",
+            "bindings": [
+              {
+                "key": "messages",
+                "role": "prompt",
+                "slot": "param:0"
+              },
+              {
+                "key": "response_format",
+                "role": "schema",
+                "slot": "param:1"
+              }
+            ],
+            "origins": [
+              {
+                "file": "classifiers.py",
+                "byte_offset": 501,
+                "line": 24
+              }
+            ],
+            "kind": "ambiguous"
+          }
+        ],
+        "reason_codes": [
+          "no_callers"
+        ]
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "id": "source:9f9b1cccd2a6",
+      "source_revision": "2eeb68212d098bb3fa1f99f060e69dd74f294a8cc1082f680cf081605a548c31",
+      "origin": "source",
+      "source": {
+        "file": "classifiers.py",
+        "line": 32,
+        "byte_offset": 712,
+        "lang": "python",
+        "sdk": "openai",
+        "api": "chat.completions.parse",
+        "via": [
+          "classifiers.py:14 categorize",
+          "+1 alternatives"
+        ]
+      },
+      "outputs": [],
+      "kind": "occurrence",
+      "tier": "review",
+      "reasons": [
+        "ambiguous_wrapper_match: 2 matching wrappers evaluate differently"
+      ],
+      "drafts": [],
+      "provenance": {
+        "disposition": "ambiguous",
+        "depth": 1,
+        "occurrence": {
+          "file": "classifiers.py",
+          "byte_offset": 712,
+          "line": 32
+        },
+        "alternatives": [
+          {
+            "edge": {
+              "id": "33873506b63a",
+              "caller": {
+                "file": "classifiers.py",
+                "byte_offset": 712,
+                "line": 32
+              },
+              "callee": {
+                "file": "classifiers.py",
+                "byte_offset": 253,
+                "line": 15
+              },
+              "depth": 1,
+              "label": "classifiers.py:14 categorize",
+              "bindings": [
+                {
+                  "key": "messages",
+                  "role": "prompt",
+                  "slot": "param:0"
+                },
+                {
+                  "key": "response_format",
+                  "role": "schema",
+                  "slot": "param:1"
+                }
+              ],
+              "origins": [
+                {
+                  "file": "classifiers.py",
+                  "byte_offset": 253,
+                  "line": 15
+                }
+              ],
+              "kind": "ambiguous"
+            },
+            "sdk": "openai",
+            "api": "chat.completions.parse",
+            "model": "gpt-4o-mini",
+            "tier": "sure",
+            "outputs": [
+              {
+                "name": "kind",
+                "space": {
+                  "kind": "choice",
+                  "options": [
+                    {
+                      "name": "billing"
+                    },
+                    {
+                      "name": "bug"
+                    },
+                    {
+                      "name": "feature"
+                    }
+                  ],
+                  "nullable": false
+                }
+              }
+            ],
+            "prompt": {
+              "dynamic": true
+            }
+          },
+          {
+            "edge": {
+              "id": "24a1bd4430e7",
+              "caller": {
+                "file": "classifiers.py",
+                "byte_offset": 712,
+                "line": 32
+              },
+              "callee": {
+                "file": "classifiers.py",
+                "byte_offset": 501,
+                "line": 24
+              },
+              "depth": 1,
+              "label": "classifiers.py:23 categorize",
+              "bindings": [
+                {
+                  "key": "messages",
+                  "role": "prompt",
+                  "slot": "param:0"
+                },
+                {
+                  "key": "response_format",
+                  "role": "schema",
+                  "slot": "param:1"
+                }
+              ],
+              "origins": [
+                {
+                  "file": "classifiers.py",
+                  "byte_offset": 501,
+                  "line": 24
+                }
+              ],
+              "kind": "ambiguous"
+            },
+            "sdk": "openai",
+            "api": "chat.completions.parse",
+            "model": "gpt-4o",
+            "tier": "sure",
+            "outputs": [
+              {
+                "name": "kind",
+                "space": {
+                  "kind": "choice",
+                  "options": [
+                    {
+                      "name": "billing"
+                    },
+                    {
+                      "name": "bug"
+                    },
+                    {
+                      "name": "feature"
+                    }
+                  ],
+                  "nullable": false
+                }
+              }
+            ],
+            "prompt": {
+              "dynamic": true
+            }
+          }
+        ],
+        "reason_codes": [
+          "ambiguous_wrapper_match"
+        ]
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "id": "source:23166033cbbe",
+      "source_revision": "ff22c38dc955c427c6c767fc317b8bb8882e0023bc6c97a394fcb7b868fb6179",
+      "origin": "source",
+      "source": {
+        "file": "llm.py",
+        "line": 7,
+        "byte_offset": 85,
+        "lang": "python",
+        "sdk": "openai",
+        "api": "chat.completions.parse",
+        "via": []
+      },
+      "model": "gpt-4o-mini",
+      "prompt": {
+        "dynamic": true
+      },
+      "outputs": [],
+      "kind": "wrapper_definition",
+      "tier": "review",
+      "reasons": [
+        "schema passed as parameter `schema`"
+      ],
+      "drafts": [],
+      "provenance": {
+        "disposition": "hidden",
+        "depth": 0,
+        "occurrence": {
+          "file": "llm.py",
+          "byte_offset": 85,
+          "line": 7
+        },
+        "callers": [
+          {
+            "id": "bf13efc89117",
+            "caller": {
+              "file": "app.py",
+              "byte_offset": 214,
+              "line": 16
+            },
+            "callee": {
+              "file": "llm.py",
+              "byte_offset": 85,
+              "line": 7
+            },
+            "depth": 1,
+            "label": "llm.py:6 ask",
+            "bindings": [
+              {
+                "key": "messages",
+                "role": "prompt",
+                "slot": "param:0"
+              },
+              {
+                "key": "response_format",
+                "role": "schema",
+                "slot": "param:1"
+              }
+            ],
+            "origins": [
+              {
+                "file": "llm.py",
+                "byte_offset": 85,
+                "line": 7
+              }
+            ],
+            "kind": "distinct"
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "id": "source:3ee4f82e28e6",
+      "source_revision": "1ebf6988d966a6ffc4aa8e100478b45a65089ff82749708f385716d3c57752bf",
+      "origin": "source",
+      "source": {
+        "file": "unused.py",
+        "line": 7,
+        "byte_offset": 90,
+        "lang": "python",
+        "sdk": "anthropic",
+        "api": "messages.create",
+        "max_tokens": 512,
+        "via": []
+      },
+      "prompt": {
+        "text": "Summarize:\n",
+        "dynamic": true
+      },
+      "outputs": [],
+      "kind": "occurrence",
+      "tier": "not_decision",
+      "reasons": [
+        "free-text generation"
+      ],
+      "drafts": [],
+      "provenance": {
+        "disposition": "no_callers",
+        "depth": 0,
+        "occurrence": {
+          "file": "unused.py",
+          "byte_offset": 90,
+          "line": 7
+        },
+        "reason_codes": [
+          "no_callers"
+        ]
+      }
+    }
+  ]
+}

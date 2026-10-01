@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "id": "ticket-triage-measured",
+  "policy_revision": "71da7bd15ff9412c081b9443a3a46977c4a05ecb8c62c55fb0c7d07cb32ddfcb",
+  "definition_id": "ticket-triage",
+  "definition_revision": "af1fc5bb79fc02204d83676bf772ec20288b962fb5a1746451f678e0bb12357c",
+  "evidence_revision": "3d4c6f0a8b1e2d5f7a9c0b1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f",
+  "model": "jev-1.13.0",
+  "evidence": "measured",
+  "thresholds": {
+    "team": 0.9,
+    "urgent": 0.8,
+    "tags.billing": 0.85,
+    "tags.bug": 0.85,
+    "tags.security": 0.7,
+    "sentiment": 0.6
+  },
+  "min_accepted": 200,
+  "target": 0.95,
+  "dataset": "tickets-2026-09 held-out split",
+  "metrics": {
+    "accepted": 412,
+    "n": 500,
+    "wilson_lower": 0.957,
+    "target": 0.95,
+    "coverage": 0.824
+  }
+}

@@ -1,0 +1,1120 @@
+{
+  "root": "tests/fixtures",
+  "files_scanned": 24,
+  "files_skipped": 0,
+  "summary": {
+    "call_sites": 22,
+    "sure": 14,
+    "likely": 2,
+    "review": 4,
+    "not_decision": 2,
+    "langchain_excluded": 2,
+    "counted": 20,
+    "decisions": 14,
+    "decision_pct": 70.0
+  },
+  "sites": [
+    {
+      "id": "ccbf11e512cb",
+      "file": "py/anthropic_forced_tool.py",
+      "line": 19,
+      "lang": "python",
+      "sdk": "anthropic",
+      "api": "messages.create",
+      "model": "claude-haiku-4-5",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "intent",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "buy"
+              },
+              {
+                "name": "cancel"
+              },
+              {
+                "name": "question"
+              },
+              {
+                "name": "complaint"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "max_tokens": 100,
+      "drafts": [
+        {
+          "key": "intent",
+          "question": {
+            "type": "choice",
+            "instructions": "[rough] What is the correct `intent` for this input?",
+            "criteria": {
+              "buy": null,
+              "cancel": null,
+              "question": null,
+              "complaint": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "5fb6cf8ea4c8",
+      "file": "py/anthropic_output_config.py",
+      "line": 7,
+      "lang": "python",
+      "sdk": "anthropic",
+      "api": "messages.create",
+      "model": "claude-sonnet-5",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "violation",
+          "space": {
+            "kind": "noul"
+          }
+        },
+        {
+          "name": "rule",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "spam"
+              },
+              {
+                "name": "abuse"
+              },
+              {
+                "name": "off_topic"
+              },
+              {
+                "name": "none"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 2 field(s)"
+      ],
+      "prompt": {
+        "text": "Decide whether the comment breaks the community rules.",
+        "dynamic": true
+      },
+      "max_tokens": 64,
+      "drafts": [
+        {
+          "key": "violation",
+          "question": {
+            "type": "noul",
+            "instructions": "Decide whether the comment breaks the community rules."
+          },
+          "quality": "rough"
+        },
+        {
+          "key": "rule",
+          "question": {
+            "type": "choice",
+            "instructions": "Decide whether the comment breaks the community rules.",
+            "criteria": {
+              "spam": null,
+              "abuse": null,
+              "off_topic": null,
+              "none": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "d177a5cb0a84",
+      "file": "py/instructor_multilabel.py",
+      "line": 14,
+      "lang": "python",
+      "sdk": "instructor",
+      "api": "create",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "labels",
+          "space": {
+            "kind": "multi_label",
+            "labels": [
+              {
+                "name": "bug"
+              },
+              {
+                "name": "feature"
+              },
+              {
+                "name": "docs"
+              },
+              {
+                "name": "question"
+              }
+            ]
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "labels__bug",
+          "question": {
+            "type": "noul",
+            "instructions": "[rough] What is the correct `labels` for this input?\n\nDoes the label `bug` apply?"
+          },
+          "quality": "rough"
+        },
+        {
+          "key": "labels__feature",
+          "question": {
+            "type": "noul",
+            "instructions": "[rough] What is the correct `labels` for this input?\n\nDoes the label `feature` apply?"
+          },
+          "quality": "rough"
+        },
+        {
+          "key": "labels__docs",
+          "question": {
+            "type": "noul",
+            "instructions": "[rough] What is the correct `labels` for this input?\n\nDoes the label `docs` apply?"
+          },
+          "quality": "rough"
+        },
+        {
+          "key": "labels__question",
+          "question": {
+            "type": "noul",
+            "instructions": "[rough] What is the correct `labels` for this input?\n\nDoes the label `question` apply?"
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "49babbd7c76a",
+      "file": "py/kwargs_wrapper.py",
+      "line": 7,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.create",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "arguments passed via **kwargs"
+      ],
+      "drafts": []
+    },
+    {
+      "id": "c5f779cb5a73",
+      "file": "py/langchain_structured.py",
+      "line": 11,
+      "lang": "python",
+      "sdk": "langchain",
+      "api": "with_structured_output",
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "destination",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "search"
+              },
+              {
+                "name": "calculator"
+              },
+              {
+                "name": "chitchat"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "drafts": [
+        {
+          "key": "destination",
+          "question": {
+            "type": "choice",
+            "instructions": "[rough] What is the correct `destination` for this input?",
+            "criteria": {
+              "search": null,
+              "calculator": null,
+              "chitchat": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "3f0b3ad79eea",
+      "file": "py/litellm_score.py",
+      "line": 11,
+      "lang": "python",
+      "sdk": "litellm",
+      "api": "completion",
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "score",
+          "description": "How relevant the document is to the query",
+          "space": {
+            "kind": "score",
+            "min": 1.0,
+            "max": 10.0,
+            "integer": true,
+            "levels": [
+              {
+                "value": 1.0
+              },
+              {
+                "value": 2.0
+              },
+              {
+                "value": 3.0
+              },
+              {
+                "value": 4.0
+              },
+              {
+                "value": 5.0
+              },
+              {
+                "value": 6.0
+              },
+              {
+                "value": 7.0
+              },
+              {
+                "value": 8.0
+              },
+              {
+                "value": 9.0
+              },
+              {
+                "value": 10.0
+              }
+            ]
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)",
+        "free-text field `explanation` treated as explanation and dropped from draft"
+      ],
+      "prompt": {
+        "text": "Query: \nDocument: ",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "score",
+          "question": {
+            "type": "score",
+            "instructions": "How relevant the document is to the query",
+            "criteria": [
+              "[rough] level 1",
+              "[rough] level 2",
+              "[rough] level 3",
+              "[rough] level 4",
+              "[rough] level 5",
+              "[rough] level 6",
+              "[rough] level 7",
+              "[rough] level 8",
+              "[rough] level 9",
+              "[rough] level 10"
+            ]
+          },
+          "level_values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0
+          ],
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "131bd9362dac",
+      "file": "py/openai_free_text.py",
+      "line": 7,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.create",
+      "model": "gpt-4o",
+      "tier": "not_decision",
+      "outputs": [],
+      "reasons": [
+        "free-text generation"
+      ],
+      "prompt": {
+        "text": "Write a friendly, helpful reply to the customer email.",
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "8926e55c98bb",
+      "file": "py/openai_imported_schema.py",
+      "line": 9,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "model": "gpt-4o-mini",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema `Ticket` defined in another file"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "89ab6a0b20d1",
+      "file": "py/openai_json_schema_dict.py",
+      "line": 22,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.create",
+      "model": "gpt-4o",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "priority",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "low"
+              },
+              {
+                "name": "medium"
+              },
+              {
+                "name": "high"
+              }
+            ],
+            "nullable": false
+          }
+        },
+        {
+          "name": "needs_human",
+          "space": {
+            "kind": "noul"
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 2 field(s)"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "priority",
+          "question": {
+            "type": "choice",
+            "instructions": "[rough] What is the correct `priority` for this input?",
+            "criteria": {
+              "low": null,
+              "medium": null,
+              "high": null
+            }
+          },
+          "quality": "rough"
+        },
+        {
+          "key": "needs_human",
+          "question": {
+            "type": "noul",
+            "instructions": "[rough] What is the correct `needs_human` for this input?"
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "2afa5b8f45d3",
+      "file": "py/openai_parse_pydantic.py",
+      "line": 15,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "label",
+          "description": "Is this email spam?",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "spam"
+              },
+              {
+                "name": "ham"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)",
+        "free-text field `reason` treated as explanation and dropped from draft"
+      ],
+      "prompt": {
+        "text": "You filter spam.",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "label",
+          "question": {
+            "type": "choice",
+            "instructions": "Is this email spam?",
+            "criteria": {
+              "spam": null,
+              "ham": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "8af9678ac3ab",
+      "file": "py/openai_responses_enum.py",
+      "line": 21,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "responses.parse",
+      "model": "gpt-4o",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "team",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "billing"
+              },
+              {
+                "name": "technical"
+              },
+              {
+                "name": "sales"
+              }
+            ],
+            "nullable": false
+          }
+        },
+        {
+          "name": "urgency",
+          "space": {
+            "kind": "score",
+            "min": 1.0,
+            "max": 3.0,
+            "integer": true,
+            "levels": [
+              {
+                "value": 1.0
+              },
+              {
+                "value": 2.0
+              },
+              {
+                "value": 3.0
+              }
+            ]
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 2 field(s)"
+      ],
+      "prompt": {
+        "text": "Route the support ticket.",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "team",
+          "question": {
+            "type": "choice",
+            "instructions": "Route the support ticket.",
+            "criteria": {
+              "billing": null,
+              "technical": null,
+              "sales": null
+            }
+          },
+          "quality": "rough"
+        },
+        {
+          "key": "urgency",
+          "question": {
+            "type": "score",
+            "instructions": "Route the support ticket.",
+            "criteria": [
+              "[rough] level 1",
+              "[rough] level 2",
+              "[rough] level 3"
+            ]
+          },
+          "level_values": [
+            1.0,
+            2.0,
+            3.0
+          ],
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "596cfa5214fd",
+      "file": "py/openai_wrapper.py",
+      "line": 7,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "model": "gpt-4o-mini",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `schema`"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "f1addd73f2f1",
+      "file": "py/openai_yes_no.py",
+      "line": 5,
+      "lang": "python",
+      "sdk": "openai",
+      "api": "chat.completions.create",
+      "model": "gpt-4o-mini",
+      "tier": "likely",
+      "outputs": [
+        {
+          "space": {
+            "kind": "noul"
+          }
+        }
+      ],
+      "reasons": [
+        "prompt asks for yes or no",
+        "max_tokens <= 16"
+      ],
+      "prompt": {
+        "text": "Is this a question? Answer only yes or no.\n\n",
+        "dynamic": true
+      },
+      "max_tokens": 1,
+      "drafts": [
+        {
+          "key": "decision",
+          "question": {
+            "type": "noul",
+            "instructions": "Is this a question? Answer only yes or no."
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "b02480a68a9f",
+      "file": "ts/ai_sdk_choice.tsx",
+      "line": 4,
+      "lang": "typescript",
+      "sdk": "ai-sdk",
+      "api": "generateText",
+      "model": "openai/gpt-5-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "urgent"
+              },
+              {
+                "name": "normal"
+              },
+              {
+                "name": "low"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "How urgent is this message? ",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "decision",
+          "question": {
+            "type": "choice",
+            "instructions": "How urgent is this message?",
+            "criteria": {
+              "urgent": null,
+              "normal": null,
+              "low": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "6db54c60c8a3",
+      "file": "ts/ai_sdk_enum.ts",
+      "line": 5,
+      "lang": "typescript",
+      "sdk": "ai-sdk",
+      "api": "generateObject",
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "action"
+              },
+              {
+                "name": "comedy"
+              },
+              {
+                "name": "drama"
+              },
+              {
+                "name": "horror"
+              },
+              {
+                "name": "sci-fi"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "text": "Classify the movie genre: ",
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "decision",
+          "question": {
+            "type": "choice",
+            "instructions": "Classify the movie genre:",
+            "criteria": {
+              "action": null,
+              "comedy": null,
+              "drama": null,
+              "horror": null,
+              "sci-fi": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "86204183ccaf",
+      "file": "ts/ai_sdk_free.ts",
+      "line": 4,
+      "lang": "typescript",
+      "sdk": "ai-sdk",
+      "api": "generateText",
+      "model": "anthropic/claude-sonnet-5",
+      "tier": "not_decision",
+      "outputs": [],
+      "reasons": [
+        "free-text generation"
+      ],
+      "prompt": {
+        "text": "Summarize the document in three short paragraphs.",
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "82309e00a562",
+      "file": "ts/ai_sdk_rating.js",
+      "line": 4,
+      "lang": "javascript",
+      "sdk": "ai-sdk",
+      "api": "generateText",
+      "model": "openai/gpt-5-mini",
+      "tier": "likely",
+      "outputs": [
+        {
+          "space": {
+            "kind": "score",
+            "min": 1.0,
+            "max": 5.0,
+            "integer": true,
+            "levels": [
+              {
+                "value": 1.0
+              },
+              {
+                "value": 2.0
+              },
+              {
+                "value": 3.0
+              },
+              {
+                "value": 4.0
+              },
+              {
+                "value": 5.0
+              }
+            ]
+          }
+        }
+      ],
+      "reasons": [
+        "prompt asks for a rating 1-5",
+        "max_tokens <= 16"
+      ],
+      "prompt": {
+        "text": "Rate the answer on a scale of 1 to 5. Reply with the number only.\n\n",
+        "dynamic": true
+      },
+      "max_tokens": 2,
+      "drafts": [
+        {
+          "key": "decision",
+          "question": {
+            "type": "score",
+            "instructions": "Rate the answer on a scale of 1 to 5. Reply with the number only.",
+            "criteria": [
+              "[rough] level 1",
+              "[rough] level 2",
+              "[rough] level 3",
+              "[rough] level 4",
+              "[rough] level 5"
+            ]
+          },
+          "level_values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0
+          ],
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "e1fd15d5a62f",
+      "file": "ts/anthropic_output_config.ts",
+      "line": 6,
+      "lang": "typescript",
+      "sdk": "anthropic",
+      "api": "messages.create",
+      "model": "claude-haiku-4-5",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "refund",
+          "space": {
+            "kind": "noul"
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "max_tokens": 32,
+      "drafts": [
+        {
+          "key": "refund",
+          "question": {
+            "type": "noul",
+            "instructions": "[rough] What is the correct `refund` for this input?"
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "3b172ab67cdb",
+      "file": "ts/langchain_structured.ts",
+      "line": 6,
+      "lang": "typescript",
+      "sdk": "langchain",
+      "api": "withStructuredOutput",
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "relevant",
+          "description": "Is the document relevant to the question?",
+          "space": {
+            "kind": "noul"
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 1 field(s)"
+      ],
+      "drafts": [
+        {
+          "key": "relevant",
+          "question": {
+            "type": "noul",
+            "instructions": "Is the document relevant to the question?"
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "f8938a459832",
+      "file": "ts/openai_param_schema.ts",
+      "line": 7,
+      "lang": "typescript",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "model": "gpt-4o-mini",
+      "tier": "review",
+      "outputs": [],
+      "reasons": [
+        "schema passed as parameter `schema`"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": []
+    },
+    {
+      "id": "839a60b4acab",
+      "file": "ts/openai_responses_zod.ts",
+      "line": 9,
+      "lang": "typescript",
+      "sdk": "openai",
+      "api": "responses.parse",
+      "model": "gpt-4o",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "toxic",
+          "space": {
+            "kind": "noul"
+          }
+        },
+        {
+          "name": "category",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "insult"
+              },
+              {
+                "name": "threat"
+              },
+              {
+                "name": "none"
+              }
+            ],
+            "nullable": false
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 2 field(s)"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "toxic",
+          "question": {
+            "type": "noul",
+            "instructions": "[rough] What is the correct `toxic` for this input?"
+          },
+          "quality": "rough"
+        },
+        {
+          "key": "category",
+          "question": {
+            "type": "choice",
+            "instructions": "[rough] What is the correct `category` for this input?",
+            "criteria": {
+              "insult": null,
+              "threat": null,
+              "none": null
+            }
+          },
+          "quality": "rough"
+        }
+      ]
+    },
+    {
+      "id": "8c4dcb0528ca",
+      "file": "ts/openai_zod.ts",
+      "line": 14,
+      "lang": "typescript",
+      "sdk": "openai",
+      "api": "chat.completions.parse",
+      "model": "gpt-4o-mini",
+      "tier": "sure",
+      "outputs": [
+        {
+          "name": "sentiment",
+          "description": "Overall sentiment of the review",
+          "space": {
+            "kind": "choice",
+            "options": [
+              {
+                "name": "positive"
+              },
+              {
+                "name": "negative"
+              },
+              {
+                "name": "neutral"
+              }
+            ],
+            "nullable": false
+          }
+        },
+        {
+          "name": "stars",
+          "space": {
+            "kind": "score",
+            "min": 1.0,
+            "max": 5.0,
+            "integer": true,
+            "levels": [
+              {
+                "value": 1.0
+              },
+              {
+                "value": 2.0
+              },
+              {
+                "value": 3.0
+              },
+              {
+                "value": 4.0
+              },
+              {
+                "value": 5.0
+              }
+            ]
+          }
+        }
+      ],
+      "reasons": [
+        "closed-set schema: 2 field(s)",
+        "free-text field `reason` treated as explanation and dropped from draft"
+      ],
+      "prompt": {
+        "dynamic": true
+      },
+      "drafts": [
+        {
+          "key": "sentiment",
+          "question": {
+            "type": "choice",
+            "instructions": "Overall sentiment of the review",
+            "criteria": {
+              "positive": null,
+              "negative": null,
+              "neutral": null
+            }
+          },
+          "quality": "rough"
+        },
+        {
+          "key": "stars",
+          "question": {
+            "type": "score",
+            "instructions": "[rough] What is the correct `stars` for this input?",
+            "criteria": [
+              "[rough] level 1",
+              "[rough] level 2",
+              "[rough] level 3",
+              "[rough] level 4",
+              "[rough] level 5"
+            ]
+          },
+          "level_values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0
+          ],
+          "quality": "rough"
+        }
+      ]
+    }
+  ]
+}

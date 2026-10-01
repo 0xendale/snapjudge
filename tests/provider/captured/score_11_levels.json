@@ -1,0 +1,35 @@
+{
+  "captured": "2026-09-28",
+  "endpoint": "POST https://api.typesafe.ai/v1/systemone",
+  "request": {
+    "model": "jev-1.13.0",
+    "state": "x",
+    "questions": {
+      "s": {
+        "type": "score",
+        "instructions": "Rate it.",
+        "criteria": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      }
+    }
+  },
+  "status": 400,
+  "headers": {
+    "content-type": "application/json",
+    "x-typesafe-request-id": "req_01a0e514cd5e7001a33085d228b6c7e4"
+  },
+  "body": {
+    "detail": "Too many score levels. Must have at most 10 levels."
+  }
+}

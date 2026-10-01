@@ -1,0 +1,27 @@
+{
+  "protocol_version": 1,
+  "request_id": "demo-route-002",
+  "site_id": "runtime:task-route",
+  "status": "error",
+  "answers": {},
+  "gate": {
+    "policy_id": null,
+    "evidence": null,
+    "passed": false,
+    "reasons": [
+      "invalid_input"
+    ]
+  },
+  "provider": null,
+  "fallback_recommended": true,
+  "fallback_owner": "host",
+  "metrics": {
+    "duration_ms": 3,
+    "cache_hit": false
+  },
+  "error": {
+    "code": "invalid_input",
+    "message": "state.task: required field is missing",
+    "retryable": false
+  }
+}

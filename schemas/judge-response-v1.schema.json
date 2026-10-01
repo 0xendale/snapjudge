@@ -1,0 +1,212 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:snapjudge:schema:judge-response-v1",
+  "title": "snapjudge judge-response-v1",
+  "description": "The single response of `snapjudge judge --json`, protocol major 1 (redesign §8; Task 7 frozen decision 1). `accepted` (exit 0): the configured gate passed; it is not permission to act. `deferred` (exit 0) and `error` (exit 1): `fallback_recommended` is true, the host owns the fallback, `gate.reasons` holds the reason codes of that status; answers on deferral are diagnostics only. `request_id` is echoed when parseable, else null. Noul and MultiLabel answers carry no provider confidence: `gate_confidence = max(p, 1 - p)`.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol_version", "request_id", "site_id", "status", "answers", "gate", "provider", "fallback_recommended", "fallback_owner", "metrics", "error"],
+  "properties": {
+    "protocol_version": { "const": 1 },
+    "request_id": { "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 128 }, { "type": "null" }] },
+    "site_id": { "anyOf": [{ "$ref": "urn:snapjudge:schema:definition-v1#/$defs/siteId" }, { "type": "null" }] },
+    "status": { "enum": ["accepted", "deferred", "error"] },
+    "answers": {
+      "type": "object",
+      "propertyNames": { "$ref": "urn:snapjudge:schema:definition-v1#/$defs/name" },
+      "additionalProperties": { "$ref": "#/$defs/answer" }
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policy_id", "evidence", "passed", "reasons"],
+      "properties": {
+        "policy_id": { "anyOf": [{ "$ref": "urn:snapjudge:schema:definition-v1#/$defs/registryId" }, { "type": "null" }] },
+        "evidence": { "enum": ["measured", "experimental", "fixture", null] },
+        "passed": { "type": "boolean" },
+        "reasons": { "type": "array", "items": { "$ref": "#/$defs/reason" } }
+      }
+    },
+    "provider": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "model"],
+          "properties": {
+            "name": { "const": "typesafe" },
+            "model": { "type": "string", "minLength": 1 }
+          }
+        },
+        { "type": "null" }
+      ]
+    },
+    "fallback_recommended": { "type": "boolean" },
+    "fallback_owner": { "const": "host" },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["duration_ms", "cache_hit"],
+      "properties": {
+        "duration_ms": { "type": "integer", "minimum": 0, "maximum": 18446744073709551615 },
+        "cache_hit": { "type": "boolean" }
+      }
+    },
+    "error": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "message", "retryable"],
+          "properties": {
+            "code": { "$ref": "#/$defs/errorReason" },
+            "message": { "type": "string", "maxLength": 512 },
+            "retryable": { "type": "boolean" }
+          }
+        },
+        { "type": "null" }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "status": { "const": "accepted" } }, "required": ["status"] },
+      "then": {
+        "properties": {
+          "request_id": { "type": "string" },
+          "site_id": { "type": "string" },
+          "provider": { "type": "object" },
+          "gate": {
+            "properties": {
+              "policy_id": { "type": "string" },
+              "evidence": { "type": "string" },
+              "passed": { "const": true },
+              "reasons": { "maxItems": 0 }
+            }
+          },
+          "fallback_recommended": { "const": false },
+          "error": { "type": "null" }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "status": { "const": "deferred" } }, "required": ["status"] },
+      "then": {
+        "properties": {
+          "request_id": { "type": "string" },
+          "site_id": { "type": "string" },
+          "gate": {
+            "properties": {
+              "passed": { "const": false },
+              "reasons": { "minItems": 1, "items": { "$ref": "#/$defs/deferredReason" } }
+            }
+          },
+          "fallback_recommended": { "const": true },
+          "error": { "type": "null" }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "status": { "const": "error" } }, "required": ["status"] },
+      "then": {
+        "properties": {
+          "gate": {
+            "properties": {
+              "passed": { "const": false },
+              "reasons": { "minItems": 1, "items": { "$ref": "#/$defs/errorReason" } }
+            }
+          },
+          "fallback_recommended": { "const": true },
+          "error": { "type": "object" }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "unit": { "type": "number", "minimum": 0, "maximum": 1 },
+    "reasons": { "type": "array", "items": { "$ref": "#/$defs/reason" } },
+    "reason": { "anyOf": [{ "$ref": "#/$defs/deferredReason" }, { "$ref": "#/$defs/errorReason" }] },
+    "deferredReason": { "enum": ["low_confidence", "policy_missing", "policy_stale", "unsupported", "timeout", "provider_unavailable", "budget_exhausted", "model_mismatch", "spend_not_authorized"] },
+    "errorReason": { "enum": ["invalid_request", "protocol_mismatch", "invalid_definition", "invalid_input", "invalid_policy", "authentication_failed"] },
+    "probabilities": { "type": "object", "additionalProperties": { "$ref": "#/$defs/unit" } },
+    "answer": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "value", "probabilities", "confidence", "gate_confidence", "passed", "reasons"],
+          "properties": {
+            "type": { "const": "choice" },
+            "value": { "type": ["string", "null"] },
+            "probabilities": { "$ref": "#/$defs/probabilities" },
+            "confidence": { "$ref": "#/$defs/unit" },
+            "gate_confidence": { "$ref": "#/$defs/unit" },
+            "passed": { "type": "boolean" },
+            "reasons": { "$ref": "#/$defs/reasons" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "value", "probability_yes", "cutoff", "gate_confidence", "passed", "reasons"],
+          "properties": {
+            "type": { "const": "noul" },
+            "value": { "type": "boolean" },
+            "probability_yes": { "$ref": "#/$defs/unit" },
+            "cutoff": { "$ref": "#/$defs/unit" },
+            "gate_confidence": { "$ref": "#/$defs/unit" },
+            "passed": { "type": "boolean" },
+            "reasons": { "$ref": "#/$defs/reasons" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "value", "labels", "passed", "reasons"],
+          "properties": {
+            "type": { "const": "multilabel" },
+            "value": { "type": "array", "items": { "$ref": "urn:snapjudge:schema:definition-v1#/$defs/name" } },
+            "labels": {
+              "type": "object",
+              "propertyNames": { "$ref": "urn:snapjudge:schema:definition-v1#/$defs/name" },
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["value", "probability_yes", "cutoff", "gate_confidence", "passed"],
+                "properties": {
+                  "value": { "type": "boolean" },
+                  "probability_yes": { "$ref": "#/$defs/unit" },
+                  "cutoff": { "$ref": "#/$defs/unit" },
+                  "gate_confidence": { "$ref": "#/$defs/unit" },
+                  "passed": { "type": "boolean" }
+                }
+              }
+            },
+            "passed": { "type": "boolean" },
+            "reasons": { "$ref": "#/$defs/reasons" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "value", "score", "level", "probabilities", "confidence", "gate_confidence", "passed", "reasons"],
+          "properties": {
+            "type": { "const": "score" },
+            "value": { "type": "number" },
+            "score": { "type": "number", "minimum": 0, "maximum": 9 },
+            "level": { "type": "integer", "minimum": 0, "maximum": 9 },
+            "probabilities": {
+              "type": "object",
+              "propertyNames": { "pattern": "^[0-9]$" },
+              "additionalProperties": { "$ref": "#/$defs/unit" }
+            },
+            "confidence": { "$ref": "#/$defs/unit" },
+            "gate_confidence": { "$ref": "#/$defs/unit" },
+            "passed": { "type": "boolean" },
+            "reasons": { "$ref": "#/$defs/reasons" }
+          }
+        }
+      ]
+    }
+  }
+}

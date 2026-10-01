@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "binary": {
+      "type": "string",
+      "pattern": "^\\/"
+    },
+    "route": {
+      "type": "object",
+      "properties": {
+        "definitionRevision": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "policyId": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._-]{0,127}$"
+        }
+      },
+      "required": ["definitionRevision", "policyId"],
+      "additionalProperties": false
+    },
+    "observations": {
+      "default": false,
+      "type": "boolean"
+    }
+  },
+  "required": ["binary"],
+  "additionalProperties": false
+}

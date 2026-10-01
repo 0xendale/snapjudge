@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:snapjudge:schema:judge-request-v1",
+  "title": "snapjudge judge-request-v1",
+  "description": "One `snapjudge judge --json` invocation, protocol major 1 (redesign §8). Exactly one of `definition` (inline, validated like definition-v1; its `site_id` must equal the request's) and `definition_ref` (a registered id plus the exact revision of the project-first resolved definition). `state` is validated against the definition's input schema before any provider call; requests carry no thresholds or budgets. At most 1 MiB. Rejections map to reason codes: malformed or bad envelope `invalid_request`, other major `protocol_mismatch`, definition or site binding `invalid_definition`, state `invalid_input`.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol_version", "request_id", "site_id", "state"],
+  "properties": {
+    "protocol_version": { "const": 1 },
+    "request_id": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "site_id": { "$ref": "urn:snapjudge:schema:definition-v1#/$defs/siteId" },
+    "definition": { "$ref": "urn:snapjudge:schema:definition-v1" },
+    "definition_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "definition_revision"],
+      "properties": {
+        "id": { "$ref": "urn:snapjudge:schema:definition-v1#/$defs/registryId" },
+        "definition_revision": { "$ref": "urn:snapjudge:schema:definition-v1#/$defs/revision" }
+      }
+    },
+    "state": { "type": "object" },
+    "policy_id": { "$ref": "urn:snapjudge:schema:definition-v1#/$defs/registryId" },
+    "timeout_ms": {
+      "description": "Requested deadline; defaults to 1500 and is capped at 30000 and by local configuration.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 18446744073709551615
+    }
+  },
+  "oneOf": [
+    { "required": ["definition"], "not": { "required": ["definition_ref"] } },
+    { "required": ["definition_ref"], "not": { "required": ["definition"] } }
+  ]
+}

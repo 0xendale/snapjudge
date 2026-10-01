@@ -1,0 +1,56 @@
+{
+  "captured": "2026-09-28",
+  "endpoint": "POST https://api.typesafe.ai/v1/systemone",
+  "request": {
+    "model": "jev-1.13.0",
+    "state": {
+      "review": "Great product, arrived late but works perfectly."
+    },
+    "questions": {
+      "rating": {
+        "type": "score",
+        "instructions": "Rate how satisfied the reviewer is.",
+        "criteria": [
+          "very unhappy",
+          "unhappy",
+          "neutral",
+          "happy",
+          "very happy"
+        ]
+      }
+    }
+  },
+  "status": 200,
+  "headers": {
+    "content-type": "application/json",
+    "x-typesafe-request-id": "req_01a0e514c9d57a5c904fb4d402ee9005"
+  },
+  "body": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "rating": {
+        "type": "score",
+        "score": 3.16,
+        "confidence": 0.87,
+        "legend": {
+          "0": "very unhappy",
+          "1": "unhappy",
+          "2": "neutral",
+          "3": "happy",
+          "4": "very happy"
+        },
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.84,
+          "4": 0.16
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 328,
+      "output_tokens": 17
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "captured": "2026-09-28",
+  "endpoint": "POST https://api.typesafe.ai/v1/systemone",
+  "request": {
+    "model": "jev-1.13.0",
+    "state": "x",
+    "questions": {
+      "q": {
+        "type": "noul",
+        "instructions": "Is x a letter?"
+      }
+    }
+  },
+  "status": 401,
+  "headers": {
+    "content-type": "application/json",
+    "x-typesafe-request-id": "req_01a0e514d2ef7f35b7f892635aab7ccf"
+  },
+  "body": {
+    "detail": {
+      "error_type": "authentication_error",
+      "message": "Cannot authenticate with the server. Please check your API key and try again."
+    }
+  }
+}

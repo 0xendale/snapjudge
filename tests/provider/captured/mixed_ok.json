@@ -1,0 +1,59 @@
+{
+  "captured": "2026-09-28",
+  "endpoint": "POST https://api.typesafe.ai/v1/systemone",
+  "request": {
+    "model": "jev-1.13.0",
+    "state": {
+      "task": "Investigate a failing validator test"
+    },
+    "questions": {
+      "route": {
+        "type": "choice",
+        "instructions": "Which kind of work does the task need?",
+        "criteria": {
+          "explore": "Understand unfamiliar code",
+          "debug": "Find why something fails",
+          "review": "Check finished work",
+          "none_of_the_above": "None fits"
+        }
+      },
+      "urgent": {
+        "type": "noul",
+        "instructions": "Is the task urgent?",
+        "criteria": {
+          "true": "Must be done now",
+          "false": "Can wait"
+        }
+      }
+    }
+  },
+  "status": 200,
+  "headers": {
+    "content-type": "application/json",
+    "x-typesafe-request-id": "req_01a0e514cbb57ee7b4b07c820e8f9968"
+  },
+  "body": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "route": {
+        "type": "choice",
+        "choice": "debug",
+        "confidence": 1.0,
+        "probabilities": {
+          "review": 0.0,
+          "none_of_the_above": 0.0,
+          "explore": 0.0,
+          "debug": 1.0
+        }
+      },
+      "urgent": {
+        "type": "noul",
+        "noul": 0.45
+      }
+    },
+    "usage": {
+      "input_tokens": 396,
+      "output_tokens": 67
+    }
+  }
+}
