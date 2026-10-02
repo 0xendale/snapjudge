@@ -5,6 +5,8 @@ edition = "2024"
 rust-version = "1.98"
 description = "Find LLM call sites that are closed-set decisions and measure whether TypeSafe Jev can take them over"
 license = "MIT OR Apache-2.0"
+repository = "https://github.com/0xendale/snapjudge"
+homepage = "https://github.com/0xendale/snapjudge"
 readme = "README.md"
 include = [
   "Cargo.toml", "Cargo.lock", "README.md", "COMPATIBILITY.md",

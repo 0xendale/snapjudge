@@ -16,9 +16,11 @@ and judge runtime with optional OpenCode and Claude Code integrations.
 
 Requirements: Rust **1.98.1** (pinned in `rust-toolchain.toml`).
 Release installers are planned, **not published**; do not assume `npx`,
-Homebrew or a curl installer exists yet. From a reviewed source checkout:
+Homebrew or a curl installer exists yet. Build from source:
 
 ```sh
+git clone https://github.com/0xendale/snapjudge.git
+cd snapjudge
 cargo build --release
 cargo test
 ./target/release/snapjudge scan . --format json --schema decision-site-v1
